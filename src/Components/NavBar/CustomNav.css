@@ -1,0 +1,57 @@
+.logo-immage-nav {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.title-nav {
+    font-size: 40px;
+    font-weight: 500;
+    color: rgb(239, 242, 245);
+}
+
+.container-nav-info{
+    gap: 5rem;
+}
+
+.align-element {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.nav-background {
+    background-color: transparent;
+    border: none;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+}
+.navbar-scrolled {
+    background-color: rgba(4, 3, 28, 0.171);
+    transition: background-color 0.3s ease;
+}
+.navbar-scrolled-middle {
+    background-color: rgba(0, 0, 0, 0.893);
+    transition: background-color 0.3s ease;
+}
+
+.nav-links {
+    color: white !important;
+    font-size: 20px !important;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.drop-title{
+    text-align: center;
+    cursor: pointer;
+    color: #faf3f3;
+    margin-top: 10px;
+}
+.dropdown-menu {
+    width: 15px!important;
+    height: 150px;
+    transform: translateX(-50%);
+    background-color: transparent;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}

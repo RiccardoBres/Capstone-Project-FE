@@ -1,0 +1,155 @@
+/* Beach.css */
+
+.beach-container {
+    display: flex;
+    justify-content: center;
+    max-height: 170vh;
+    text-align: center;
+    background-color: white;
+}
+
+.intro {
+    font-size: 20px;
+    color: rgb(15, 13, 13);
+}
+
+.intro-beach {
+    font-size: 22px;
+    color: rgb(30, 28, 28);
+    margin-bottom: 50px;
+}
+
+.logo {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+    text-align: center;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.logo:hover {
+    transform: scale(1.1); 
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); 
+}
+.container-Logo{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+    
+
+
+.beach-title {
+    margin-top: 90px;
+    margin-bottom: 50px;
+    font-size: 35px;
+    text-align: center;
+    color: rgb(14, 12, 12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.beach-description {
+    margin-top: 20px
+}
+
+.beach-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fbefef;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 600px;
+}
+
+.beach-card__image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-beach {
+    max-width: 600px;
+}
+
+.beach-card__content {
+    padding: 16px;
+}
+
+.beach-card__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.beach-card__info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 10px;
+}
+
+.beach-card__level,
+.beach-card__type {
+    font-size: 1rem;
+    color: #888;
+}
+
+.beach-card__comment {
+    margin-top: 20px;
+}
+
+.hr-color {
+    width: 50%;
+    color: white;
+    margin-bottom: 60px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.btn-community,
+.btn-share {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-community:hover,
+.btn-share:hover {
+    background-color: #e67e22;
+}
+.loading-spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border: 0.25em solid currentColor;
+    border-right-color: transparent;
+    animation: spinner-border 0.75s linear infinite;
+}
+
+@keyframes spinner-border {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -4,6 +4,7 @@ import axios from 'axios';
 const initialState = {
     isLoading: false,
     user: null,
+    userById: null,
     error: null
 };
 
@@ -12,6 +13,18 @@ export const getUser = createAsyncThunk(
     async () => {
         try {
             const response = await axios.get('http://localhost:9090/user');
+            return response.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+)
+
+export const getUserById = createAsyncThunk(
+    'userId/getUserByID',
+    async(userId) => {
+        try {
+            const response = await axios.get(`http://localhost:9090/user/${userId}`);
             return response.data;
         } catch (error) {
             console.log(error);
@@ -60,6 +73,17 @@ const UserSlice = createSlice({
                 state.user = action.payload;
             })
             .addCase(createUser.rejected, (state) => {
+                state.isLoading = false;
+                state.error = 'Registration failed'
+            })
+            .addCase(getUserById.pending,(state) => {
+                state.isLoading = true;
+             })
+            .addCase(getUserById.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.userById = action.payload;
+            })
+            .addCase(getUserById.rejected, (state) => {
                 state.isLoading = false;
                 state.error = 'Registration failed'
             })

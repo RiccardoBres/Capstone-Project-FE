@@ -23,12 +23,12 @@ export const useSession = () => {
         }
     }, [session]);
 
-    return { decodedSession, showModal, setShowModal,session };
+     return { decodedSession, showModal, setShowModal, session};
 }
 
 const ProtectedRoutes = () => {
     const isAuthorized = auth();
-    const { decodedSession, showModal, setShowModal } = useSession();
+    const { decodedSession, showModal, setShowModal} = useSession();
     const session = useSession();
 
 

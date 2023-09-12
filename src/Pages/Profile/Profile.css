@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.custom-width{
+    width: 50%;
+}
+
+.container-profile {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: center;
+    background-color: #fadada;
+    gap: 3rem;
+}
+
+.avatar-profile-page {
+    width: 140px !important;
+    height: 130px !important;
+    border-radius: 50% !important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+.image-name-container{
+    margin-left: 60px;
+}
+
+.avatar-profile-page:hover {
+    box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.container-intro-image {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    color: rgb(90, 89, 89);
+}
+
+.profile-name {
+    margin-top: 15px;
+    margin-top: 30px;
+}
+
+.email-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.icon-email {
+    font-size: 20px;
+}
+
+.icon-birthday {
+    font-size: 20px;
+}
+
+.main-content {
+    margin-left: 50px;
+}
+
+.birthday-container {
+    display: flex;
+    margin-top: 30px;
+    gap: 1rem;
+}
+
+
+/* Stile per le card delle spiagge */
+
+.beach-card-container{
+    max-height: 400px; 
+    overflow-y: auto;
+    width: 800px;
+    overflow-x: hidden;
+    margin-top: 10px;
+    box-shadow: 2px 4px 10px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius:8px;
+    padding: 25px;
+}
+.beach-card-container::-webkit-scrollbar{
+    display: none;
+  }
+
+.beach-cards {
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 8px;
+    width: 600px;
+}
+.text-pubblicazioni{
+    font-size: 28px;
+    text-align: center;
+}
+
+.card {
+    margin-top: 120px;
+    background-color: #ffb3b3;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 18px;
+    padding: 10px;
+}
+
+.card-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-text {
+    margin-top: 10px;
+    font-size: 14px;
+}

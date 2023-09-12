@@ -1,9 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
-import './Hero.css'; // Assicurati di importare il file CSS corretto
+import './Hero.css';
 import MiddleCarousel from './MiddleCarousel';
 import SurfVideo from './AssetsHero/Surf3.mp4';
 import CustomNavbar from '../NavBar/CustomNavbar';
-import { Container, Row, Col, Button } from 'react-bootstrap'; // Importa anche il componente Button da react-bootstrap
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     const [showIntro, setShowIntro] = useState(false);
@@ -27,7 +28,7 @@ const Hero = () => {
     return (
         <div className='video-container'>
             <CustomNavbar />
-            <video autoPlay muted className="video-background">
+            <video loop autoPlay muted className="video-background">
                 <source src={SurfVideo} type="video/mp4" />
             </video>
             <Container fluid>
@@ -41,7 +42,9 @@ const Hero = () => {
                             Programma la tua vacanza ideale e scopri i servizi più adatti a te! <br />
                             Pratica il tuo Surf e trova lo spot più adatto al tuo livello in tutta Europa!</p>
                         <div className={`buttons-container ${showButtons ? 'visible' : ''}`}>
-                            <Button variant="dark" className="mr-2">Unisciti alla community</Button>
+                            <Link to={"/signUp"}>
+                                <Button variant="dark" className="mr-2">Unisciti alla community</Button>
+                            </Link>
                             <Button variant="secondary">Programma la tua prossima meta</Button>
                         </div>
 

@@ -13,11 +13,11 @@ const Footer = () => {
                         <div className="contact-info">
                             <div className="contact-icon">
                                 <p>Riccardo Bresolin</p>
-                                <div className='d-flex align-items-center justify-content-center gap-3'>
+                                <div className='d-flex justify-content-center gap-3'>
                                     <FaEnvelope />
                                     <p>riccardoBresolin97@libero.it</p>
                                 </div>
-                                <div className='d-flex'>
+                                <div className='d-flex gap-3 justify-content-center'>
                                     <FaPhone />
                                     <p>+351 913 436264</p>
                                 </div>

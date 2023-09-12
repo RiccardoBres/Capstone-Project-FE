@@ -10,13 +10,12 @@ import HeroBeach from '../Components/Beach/HeroBeach'
 
 const Homepage = () => {
     return (
-        <>
-            <AccessRegistration/>
-            <FoundSpot/>   
+        <>  
+            <CustomNavbar/>
             <Hero />
             <HeroBeach/>
-            <MiddleCarousel/> 
             <Schools/>
+            <MiddleCarousel/> 
             <Footer/>
         </>
     )

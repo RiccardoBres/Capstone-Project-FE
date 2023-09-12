@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Form, Button } from 'react-bootstrap';
-import './SpotSearcher/BeachOptions.css'
 import CustomNavbar from '../Components/NavBar/CustomNavbar'
 import Footer from '../Components/Footer/Footer';
 import { createUser} from '../States/UserState';
 import ModalLogin from '../Components/NavBar/ModalLogin';
 import { useNavigate } from 'react-router-dom';
+import './RegistrationPage.css'
 
 
 const RegistrationPage = () => {
@@ -56,7 +56,7 @@ const RegistrationPage = () => {
         <>
             <CustomNavbar />
             <Container className="registration-container">
-                <em className='title mb-5'>Registrati per ottenere accesso ai nostri servizi!</em>
+                <p className='title-registration'>Registrati per ottenere accesso ai nostri servizi!</p>
                 <Form
                     className="registration-form"
                     validated={validated}
@@ -149,6 +149,7 @@ const RegistrationPage = () => {
                             name="type" />
                     </Form.Group>
                     <Button
+                        variant="secondary"
                         type="submit">Registrati</Button>
                 </Form>
             </Container>

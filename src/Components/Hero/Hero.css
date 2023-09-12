@@ -48,21 +48,21 @@ body {
   }
 
 .title {
-    font-size: 55px;
+    font-size: 25px;
     text-align: center;
     color: #f9efea;
 
 }
 /* ///////// MIDDLE CAROUSEL */
 .title-carousel {
-    font-size: 35px;
+    font-size: 25px;
     text-align: center;
     color: rgb(43, 40, 40)!important;
     margin-bottom: 10px;
 }
 
 .intro {
-    font-size: 25px!important;
+    font-size: 20px!important;
     color: rgb(34, 32, 32)!important;
     font-weight: 200;
 }
@@ -98,6 +98,16 @@ body {
     min-height: 130vh;
     text-align: center;
     background-color: white;
+ }
+ 
+.carousel-container-middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 130vh;
+    text-align: center;
+    background-color: white;
 }
 
 .col-carousel-and-text {
@@ -105,6 +115,9 @@ body {
     flex-direction: column;
     align-items: center;
     color: black;
+    width: 80%;
+    height: 80%;
+    gap: 3rem;
 }
 
 .card-column {
@@ -124,17 +137,19 @@ body {
 }
 
 .card-container {
-    min-width: 280px;
+    min-width: 300px;
+    width: 300px;
     min-height: 350px;
+    border-radius: 25px;
     margin: 10px;
-    margin-top: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: rgb(210, 242, 230);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     color: black;
+    box-shadow: 0 14px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: rgba(224, 219, 219, 0.993);
+    border: 0.5px solid rgb(240, 236, 236);
+    
 }
 
 .card-container:hover {
@@ -151,11 +166,12 @@ body {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 8px;
+    color: rgb(14, 14, 14);
 }
 
 .card-text {
     font-size: 14px;
-    color: #666;
+    color: #171515;
     margin-bottom: 12px;
 }
 
@@ -194,3 +210,28 @@ body {
         transform: rotate(360deg);
     }
 }
+
+/* Schoool */
+
+.title-school{
+    font-size: 25px;
+    text-align: center;
+    color: #212020;
+}
+.logo-school {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+    margin-top: 65px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.logo-school:hover {
+    transform: scale(1.1); 
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); 
+}
+.intro-school{
+    font-size: 20px;
+}
+

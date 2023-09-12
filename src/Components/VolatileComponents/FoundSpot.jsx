@@ -15,9 +15,8 @@ const FoundSpot = () => {
     useEffect(() => {
 
         const handleScroll = () => {
-            console.log(session);
-            const targetHeightShow = 800;
-            const targetHeightHide = 1900;
+            const targetHeightShow = 880;
+            const targetHeightHide = 1150;
 
             if (window.scrollY >= targetHeightShow && window.scrollY <= targetHeightHide) {
                 setIsVisible(true);

@@ -8,14 +8,17 @@ import "./CustomNav.css";
 import Logo from "./Assets/Surf-Logo-2.jpg";
 import ModalLogin from './ModalLogin';
 import { logout } from '../../Middleware/ProtectedRoutes';
+import { NavLink } from 'react-router-dom';
 
 
 
 
 const CustomNavbar = () => {
+
     const [showModal, setShowModal] = useState(false);
     const [navbarScrolled, setNavbarScrolled] = useState(false);
-    const [navbarScrolledMiddle, setNavbarScrolledMiddle] = useState(false);
+    const userLoggedIn = localStorage.getItem("userLoggedIn");
+    const [isBachecaVisible, setIsBachecaVisible] = useState(false);
 
 
     const handleShowModal = () => {
@@ -23,32 +26,33 @@ const CustomNavbar = () => {
     };
     const handleLogout = () => {
         logout();
+        setIsBachecaVisible(false);
     }
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 20) {
+            if (window.scrollY > 80) {
                 setNavbarScrolled(true);
             } else {
                 setNavbarScrolled(false);
             }
-
-            if (window.scrollY > 1000) {
-                setNavbarScrolledMiddle(true);
+            if (userLoggedIn) {
+                setIsBachecaVisible(true);
             } else {
-                setNavbarScrolledMiddle(false);
+                setIsBachecaVisible(false);
             }
         };
 
         window.addEventListener('scroll', handleScroll);
 
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [userLoggedIn]);
 
     return (
         <>
-            <Navbar className={`nav-background ${navbarScrolled ? 'navbar-scrolled' : ''} ${navbarScrolledMiddle ? 'navbar-scrolled-middle' : ''}`} expand="lg">
+            <Navbar className={`nav-background ${navbarScrolled ? 'navbar-scrolled' : ''}`} expand="lg">
                 <Container className='align-element'>
                     <img className='logo-immage-nav' src={Logo} alt="Logo" />
                     <em className='title-nav' href="/">Surf On</em>
@@ -57,9 +61,10 @@ const CustomNavbar = () => {
                         <Nav className="me-auto">
                             <Nav.Link className='nav-links' href="/">Home</Nav.Link>
                             <Nav.Link onClick={handleShowModal} className='nav-links'>Login</Nav.Link>
+                            {isBachecaVisible && <Nav.Link className='nav-links' as={NavLink} to="/posts">Bacheca</Nav.Link>}
                         </Nav>
                         <Nav>
-                            <NavDropdown title={<FontAwesomeIcon icon={faUser} id="account-dropdown" />}>
+                            <NavDropdown title={<FontAwesomeIcon icon={faUser} id="account-dropdown" className='user-icon' />}>
                                 <div className="custom-dropdown">
                                     <p
                                         className='drop-title'
@@ -73,8 +78,10 @@ const CustomNavbar = () => {
                                     </p>
                                     <p
                                         className='drop-title'
+                                        onClick={handleLogout}
+                                        id="account-dropdown"
                                     >
-                                        <FontAwesomeIcon icon={faSignOutAlt} className="logout-icon" onClick={handleLogout} /> Logout
+                                        <FontAwesomeIcon icon={faSignOutAlt} className="logout-icon" /> Logout
                                     </p>
                                 </div>
                             </NavDropdown>

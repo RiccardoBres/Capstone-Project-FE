@@ -59,9 +59,9 @@ const ModalLogin = ({ showModal, setShowModal }) => {
                     </Form.Group>
                 </Form>
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer className='modal-footer'>
                 <Link to='/'>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button  className='mt-0' variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
                 </Link>

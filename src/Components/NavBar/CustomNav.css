@@ -42,15 +42,15 @@
     color: white;
 }
 .custom-dropdown{
-    height: 155px;
+    height: 150px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(0, 0, 0, 0.334);
-    background-color: white;
+    background-color: transparent;
 }
+
 .drop-title{
     text-align: center;
     cursor: pointer;
@@ -58,12 +58,15 @@
     margin-top: 10px;
     font-weight: bold;
 }
+
 .dropdown-menu {
-    width: 15px!important;
-    height: 150px;
     transform: translateX(-50%);
-    background-color: transparent;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff80;
+}
+.user-name-nav{
+    color: white!important;
+    font-size: 18px;
 }
 
 .modal-footer{

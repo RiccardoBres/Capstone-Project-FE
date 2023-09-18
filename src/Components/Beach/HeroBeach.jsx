@@ -8,17 +8,23 @@ import { Carousel } from 'react-bootstrap';
 import { allBeach, getBeach, isLoading } from '../../States/BeachState';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../Hero/AssetsHero/woman-goes-surfing-logo.jpg'
+import { useSession } from '../../Middleware/ProtectedRoutes';
 
-const HeroBeach = () => {
+const HeroBeach = ({ userData }) => {
+    const session = useSession();
     const dispatch = useDispatch();
     const beaches = useSelector(allBeach);
     const loading = useSelector(isLoading);
     const navigate = useNavigate();
 
 
+
     const handleAuthorClick = (userId) => {
         navigate(`/profile/${userId}`);
     };
+    const handleShareExperiencePage = (userId) => {
+            navigate(`/shareExperience/${userId}`);
+    }
 
     useEffect(() => {
         dispatch(getBeach());
@@ -50,7 +56,14 @@ const HeroBeach = () => {
                             <Link to='/signUp'>
                                 <Button variant="dark" className="btn-community">Entra a far parte della community</Button>
                             </Link>
-                            <Button variant="secondary" className="btn-share">Condividi una tua esperienza</Button>
+                            <Button
+                                 onClick={() => session.decodedSession && handleShareExperiencePage(session.decodedSession.id)}
+                                variant="secondary"
+                                className="btn-share"
+                            >
+                                Condividi una tua esperienza
+                            </Button>
+
                         </div>
                     </Col>
                     <Col lg={6} className='order-lg-2 beach-list'>

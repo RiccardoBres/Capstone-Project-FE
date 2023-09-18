@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { loginUser, LoginUser } from '../../States/LoginState';
 import { Link } from 'react-router-dom';
+import { useSession } from '../../Middleware/ProtectedRoutes';
 
 
 
-const ModalLogin = ({ showModal, setShowModal }) => {
+const ModalLogin = ({ showModal, setShowModal, setUserData }) => {
 
-
+    const session = useSession();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
@@ -22,11 +23,15 @@ const ModalLogin = ({ showModal, setShowModal }) => {
 
     const handleLogin = () => {
         dispatch(loginUser(loginFormData))
-        if (LoginUser) {
-            handleClose();
-            navigate('/');
-        }
+            .then((response) => {
+                handleClose();
+                setUserData(session.decodedSession); 
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     };
+    
     return (
         <Modal show={showModal} centered onHide={handleClose}>
             <Modal.Header>
@@ -45,7 +50,6 @@ const ModalLogin = ({ showModal, setShowModal }) => {
                             })}
                         />
                     </Form.Group>
-
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control

@@ -14,8 +14,9 @@ const Homepage = () => {
             <CustomNavbar/>
             <Hero />
             <HeroBeach/>
-            <Schools/>
+            <AccessRegistration/>
             <MiddleCarousel/> 
+            <Schools/>
             <Footer/>
         </>
     )

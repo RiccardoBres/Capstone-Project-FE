@@ -27,14 +27,14 @@ const MiddleCarousel = () => {
                         <img className='carousel-img' src={Surfimmage3} alt="First slide" />
                         <Carousel.Caption>
                             <h3>Scegli chi ti guiderà</h3>
-                            <em>Trova l'istruttore che più fa al caso tuo</em>
+                            <em>Trova la scuola che più fa al caso tuo</em>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item className='carousel-item carousel-slide'>
                         <img className='carousel-img' src={Surfimmage4} alt="First slide" />
                         <Carousel.Caption>
                             <h3>Trova il gruppo ideale</h3>
-                            <p> Organizza sessioni di gruppo con persone da tutta Europa</p>
+                            <p> Scambia opinioni sulle spiagge con persone da tutta Europa</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>

@@ -1,7 +1,7 @@
 .component-fixed {
     position: fixed;
-    top: 90px;
-    left: 90%;
+    top: 120px;
+    left: 95%;
     transform: translateX(-50%);
     background-color: transparent;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
@@ -16,25 +16,6 @@
 .component-fixed:hover {
     background-color: rgba(255, 255, 255, 0.093);
 }
-/* .component-fixed-2 {
-    position: fixed;
-    top: 110px;
-    left: 66%;
-    transform: translateX(-50%);
-    background-color: transparent;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    z-index: 999;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.component-fixed-2:hover {
-    background-color: rgba(255, 255, 255, 0.093);
-}
- */
-
 
 .close-button {
     margin-top: 10px;
@@ -75,12 +56,26 @@
     margin-top: 20px;
     gap: 0.5rem;
     cursor: pointer;
+    color: black;
 }
 
-.go-to-page-container a {
-    text-decoration: none !important;
-    color: white;
+.go-to-page-container p {
+    text-decoration: none!important;
+    color: rgb(16, 15, 15);
 }
+.intro-component{
+    color: black;
+    text-decoration: none;
+}
+.container-intro-component-volatil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 
 .registration-container {
     display: flex;

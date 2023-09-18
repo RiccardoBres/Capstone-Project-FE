@@ -6,21 +6,19 @@
 
 body {
     margin: 0;
-    height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
+    background: rgb(240,235,171);
+  background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(247,235,136,1) 12%, rgba(243,223,255,1) 26%, rgba(243,201,255,1) 51%, rgba(237,181,251,1) 67%, rgba(154,155,246,1) 88%, rgba(120,121,255,1) 97%);
 }
-.custom-width{
-    width: 50%;
-}
+
 
 .container-profile {
     width: 100%;
-    height: 100vh;
+    height: 155vh;
     display: flex;
     flex-direction: column;
-    align-items: self-start;
+    align-items: center;
     justify-content: center;
-    background-color: #fadada;
     gap: 3rem;
 }
 
@@ -31,8 +29,13 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.3s ease;
 }
-.image-name-container{
-    margin-left: 60px;
+
+.image-name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
 }
 
 .avatar-profile-page:hover {
@@ -43,6 +46,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
     margin-top: 50px;
     color: rgb(90, 89, 89);
 }
@@ -50,6 +54,7 @@ body {
 .profile-name {
     margin-top: 15px;
     margin-top: 30px;
+    display: inline-block;
 }
 
 .email-container {
@@ -77,42 +82,67 @@ body {
     gap: 1rem;
 }
 
+.first-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-row {
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
 
 /* Stile per le card delle spiagge */
 
-.beach-card-container{
-    max-height: 400px; 
-    overflow-y: auto;
-    width: 800px;
+.beach-card-container {
+    max-height: 400px;
+    width: 100%;
     overflow-x: hidden;
-    margin-top: 10px;
     box-shadow: 2px 4px 10px 12px rgba(0, 0, 0, 0.2);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius:8px;
+    border-radius: 8px;
     padding: 25px;
+    background: rgb(240,235,171);
+  background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(247,235,136,1) 12%, rgba(243,223,255,1) 26%, rgba(243,201,255,1) 51%, rgba(237,181,251,1) 67%, rgba(154,155,246,1) 88%, rgba(120,121,255,1) 97%);  
 }
-.beach-card-container::-webkit-scrollbar{
+
+.beach-card-container::-webkit-scrollbar {
     display: none;
-  }
+}
 
 .beach-cards {
     padding: 20px;
     margin-top: 50px;
     border-radius: 8px;
-    width: 600px;
+    width: 40%;
 }
-.text-pubblicazioni{
+
+.text-pubblicazioni {
     font-size: 28px;
-    text-align: center;
+    text-align: center !important;
+    margin-top: 30px;
 }
 
 .card {
     margin-top: 120px;
-    background-color: #ffb3b3;
+    background-color:transparent;
     text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border: #4B1248;
+
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.5);
+    background-color: transparent;
 }
 
 .card-title {

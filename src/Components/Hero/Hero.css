@@ -53,17 +53,22 @@ body {
     color: #f9efea;
 
 }
+.title-hero{
+    font-size: 45px;
+    text-align: center;
+    color: #f9efea;
+}
 /* ///////// MIDDLE CAROUSEL */
 .title-carousel {
     font-size: 25px;
     text-align: center;
-    color: rgb(43, 40, 40)!important;
+    color: rgb(64, 64, 64)!important;
     margin-bottom: 10px;
 }
 
 .intro {
     font-size: 20px!important;
-    color: rgb(34, 32, 32)!important;
+    color: rgb(71, 71, 71)!important;
     font-weight: 200;
 }
 .intro-video{
@@ -97,7 +102,7 @@ body {
     justify-content: center;
     min-height: 130vh;
     text-align: center;
-    background-color: white;
+    
  }
  
 .carousel-container-middle {
@@ -107,8 +112,8 @@ body {
     justify-content: center;
     min-height: 130vh;
     text-align: center;
-    background-color: white;
-}
+    background: rgb(240,235,171);
+    background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(247,235,136,1) 12%, rgba(243,223,255,1) 26%, rgba(243,201,255,1) 51%, rgba(237,181,251,1) 67%, rgba(154,155,246,1) 88%, rgba(120,121,255,1) 97%);}
 
 .col-carousel-and-text {
     display: flex;
@@ -142,19 +147,23 @@ body {
     min-height: 350px;
     border-radius: 25px;
     margin: 10px;
-     color: black;
+     color: rgb(242, 234, 234);
     box-shadow: 0 14px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: rgba(224, 219, 219, 0.993);
-    border: 0.5px solid rgb(240, 236, 236);
+    background: #757F9A;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    
     
 }
 
 .card-container:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: blue;
 }
 
 .card-content {
@@ -166,12 +175,12 @@ body {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 8px;
-    color: rgb(14, 14, 14);
+    color: rgb(25, 25, 25);
 }
 
 .card-text {
     font-size: 14px;
-    color: #171515;
+    color: #383838;
     margin-bottom: 12px;
 }
 
@@ -234,4 +243,29 @@ body {
 .intro-school{
     font-size: 20px;
 }
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%; /* Modifica la larghezza delle frecce */
+  opacity: 1; /* Opacità completa */
+  border: none; /* Rimuovi il bordo */
+  top: 50%; /* Posiziona al centro verticalmente */
+  transform: translateY(-50%); /* Posiziona al centro verticalmente */
+  margin: 0;
+}
+
+/* Stile per le frecce del carosello quando sono attive */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  transition: 0.3s ease; /* Aggiungi un effetto di transizione al passaggio del mouse */
+}
+
+/* Stile per le icone delle frecce */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  padding: 10px; /* Spaziatura interna per le icone */
+  font-size: 20px; /* Dimensione del carattere delle icone */
+  color: rgb(16, 16, 16)!important; 
+}
+
+
 

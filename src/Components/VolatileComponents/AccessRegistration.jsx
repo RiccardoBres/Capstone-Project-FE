@@ -1,28 +1,30 @@
-import { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
 import "./Registration.css";
 import Logo from "../../Components/NavBar/Assets/Surf-Logo-2.jpg";
 import { Link } from 'react-router-dom';
+import { useSession } from '../../Middleware/ProtectedRoutes';
 
 const AccessRegistration = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [contentVisible, setContentVisible] = useState(false);
+    const { isAuthenticated } = useSession();
 
     useEffect(() => {
         const handleScroll = () => {
-            const targetHeightShow = 50; 
-            const targetHeightHide = 790; 
-
-            if (window.scrollY >= targetHeightShow && window.scrollY <= targetHeightHide) {
+            const targetHeightShow = 250;
+            if (window.scrollY >= targetHeightShow) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
             }
         }
+
         window.addEventListener("scroll", handleScroll);
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
         }
-    }, [])
+    }, [isAuthenticated]);
 
     const toggleContentVisibility = () => {
         setContentVisible(!contentVisible);
@@ -34,8 +36,8 @@ const AccessRegistration = () => {
 
     return (
         <>
-            <div className={`component ${isVisible ? 'component-fixed' : ''}`}>
-                {isVisible &&
+            <div className={`component ${isVisible && isAuthenticated ? 'component-fixed' : ''}`}>
+                {isVisible && isAuthenticated &&
                     <div className={`invite ${contentVisible ? '' : 'display-none'}`}>
                         <img
                             className='logo-immage-access'
@@ -44,15 +46,17 @@ const AccessRegistration = () => {
                             onClick={toggleContentVisibility}
                         />
                         {contentVisible && (
-                            <div className='my-3'>
-                                <em>Registrati per ottenere accesso a contenuti esclusivi!</em>
+                            <div className='container-intro-component-volatil'>
+                                <em className='intro-component'>Programma la tua prossima meta e recensisci le ultime pubblicazioni condividendo una tua esperienza</em>
                                 <div className='go-to-page-container'>
-                                    <Link to={"/signUp"}>
+                                    <Link className='intro-component' to={"/posts"}>
                                         <p>
-                                            Registrati
+                                            Vai
                                         </p>
                                     </Link>
-                                    <p onClick={closeComponent}>
+                                    <p
+                                        className='intro-component'
+                                        onClick={closeComponent}>
                                         Chiudi
                                     </p>
                                 </div>
@@ -65,4 +69,4 @@ const AccessRegistration = () => {
     )
 }
 
-export default AccessRegistration
+export default AccessRegistration;

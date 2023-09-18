@@ -13,7 +13,6 @@ const CarouselComponent = () => {
 
 
     useEffect(() => {
-        console.log(schools);
         dispatch(getSchools());
     }, []);
 

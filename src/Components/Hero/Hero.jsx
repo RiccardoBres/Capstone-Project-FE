@@ -34,7 +34,7 @@ const Hero = () => {
             <Container fluid>
                 <Row className='d-flex'>
                     <Col md={6} className={`container-intro ${showIntro ? 'visible' : ''}`}>
-                        <em className='title'>
+                        <em className='title-hero'>
                             Trova la tua meta
                         </em>
                         <br />
@@ -45,7 +45,9 @@ const Hero = () => {
                             <Link to={"/signUp"}>
                                 <Button variant="dark" className="mr-2">Unisciti alla community</Button>
                             </Link>
-                            <Button variant="secondary">Programma la tua prossima meta</Button>
+                            <Link to={"/posts"}>
+                                <Button variant="secondary">Programma la tua prossima meta</Button>
+                            </Link>
                         </div>
 
                     </Col>

@@ -32,6 +32,10 @@ const CustomNavbar = () => {
         logout();
         navigate('/');
         setDropdownOpen(false);
+        window.location.reload();
+    }
+    const handleShareExperiencePage = (userId) => {
+        navigate(`/shareExperience/${userId}`);
     }
     useEffect(() => {
         const handleScroll = () => {
@@ -40,7 +44,6 @@ const CustomNavbar = () => {
             } else {
                 setNavbarScrolled(false);
             }
-            console.log(session);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -72,7 +75,9 @@ const CustomNavbar = () => {
                                     onToggle={(isOpen) => setDropdownOpen(isOpen)}
                                 >
                                     <div className="custom-dropdown">
-                                        <p className='drop-title'>
+                                        <p 
+                                        onClick={() => session.decodedSession && handleShareExperiencePage(session.decodedSession.id)}
+                                        className='drop-title'>
                                             <FontAwesomeIcon icon={faUserCircle} className="logout-icon" /> Vai al tuo profilo
                                         </p>
                                         <p className='drop-title'>

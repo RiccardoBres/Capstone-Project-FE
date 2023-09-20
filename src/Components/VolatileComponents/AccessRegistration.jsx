@@ -47,7 +47,7 @@ const AccessRegistration = () => {
                         />
                         {contentVisible && (
                             <div className='container-intro-component-volatil'>
-                                <em className='intro-component'>Programma la tua prossima meta e recensisci le ultime pubblicazioni condividendo una tua esperienza</em>
+                                <p className='intro-component'>Programma la tua prossima meta</p>
                                 <div className='go-to-page-container'>
                                     <Link className='intro-component' to={"/posts"}>
                                         <p>

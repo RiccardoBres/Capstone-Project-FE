@@ -4,7 +4,7 @@ import './Bacheca.css';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane, faTrash, faMapMarker, faSchool, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { allBeach, getBeach, createComment, getComment, allComment, deleteComment } from '../../States/BeachState';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSession } from '../../Middleware/ProtectedRoutes';
@@ -89,7 +89,7 @@ const Bacheca = () => {
         setFilteredBeaches(filteredResult);
     };
     const handleSchoolPage = (location) => {
-        navigate(`/School/location?location=${location}`);
+        navigate(`/School/location/${location}`);
     };
 
 
@@ -110,8 +110,6 @@ const Bacheca = () => {
             refScrollRevers.current.scrollIntoView({ behavior: 'smooth' });
         }
     };
-
-
     useEffect(() => {
         setFilteredBeaches(beaches);
     }, [beaches]);
@@ -163,7 +161,7 @@ const Bacheca = () => {
                 </Row>
             </div>
             <Row className='row-posts'>
-                <Col className='my-3' md={12} lg={8}>
+                <Col className='my-3 text-white' md={12} lg={8}>
                     <h1>Ultime pubblicazioni:</h1>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={10}>
@@ -173,8 +171,18 @@ const Bacheca = () => {
                                 <Card.Img className="card-img-post" src={beach.image} alt={beach.name} />
                                 <Card.Title className="card-title-post">{beach.name}</Card.Title>
                                 <Card.Body className='p-0'>
-                                    <Card.Text className="card-text-post">Località: {beach.location}</Card.Text>
-                                    <Card.Text className="card-text-post">Livello: {beach.level}</Card.Text>
+                                    <Card.Text className="card-text-post">
+                                        <FontAwesomeIcon icon={faMapMarker} /> Località: {beach.location}
+                                    </Card.Text>
+                                    <Card.Text className="card-text-post">
+                                        <FontAwesomeIcon icon={faSchool} /> Livello: {beach.level}
+                                    </Card.Text>
+                                    <Card.Text className="card-text-post">
+                                        <div className="post-info-date">
+                                        <img src={beach.user.avatar} alt="" />
+                                            {<p className="card-footer-text">Pubblicato il: {new Date(beach.createdAt).toLocaleDateString()}</p>}
+                                        </div>
+                                    </Card.Text>
                                 </Card.Body>
                                 <div className='buttons-school-reviews'>
                                     <button className='button-details-card' onClick={() => { handleDetails(beach._id); scrollToElement(); }}>Recensioni</button>
@@ -182,10 +190,10 @@ const Bacheca = () => {
                                         className='button-details-card'
                                         onClick={() => handleSchoolPage(beach.location)}
                                     >
-                                        <Link to={`/School/location?location=${beach.location}`}>
+                                        <Link className='decoration-none' to={`/School/location?location=${beach.location}`}>
                                             Scuole nelle vicinanze
                                         </Link>
-                                    </button>                         
+                                    </button>
                                 </div>
                             </Card>
                         )) : <p className='color-dark'>Nessuna spiaggia trovata </p>}

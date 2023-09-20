@@ -119,11 +119,9 @@ const ShareExperience = () => {
                             ) : null}
                         </div>
                     </Col>
-                </Row>
-                <Row className='row-publication'>
                     <Col sm={4} md={4} lg={6}>
-                        <div className="beach-card-container">
-                            <div className='beach-cards'>
+                        <div className="beach-card-container-bcc">
+                            <div className='beach-card-bcc'>
                                 {userDetails && userDetails.payload.userById.beach.length > 0 ? (
                                     userDetails.payload.userById.beach.map((beach) => (
                                         <Card key={beach._id} className='card'>
@@ -141,8 +139,9 @@ const ShareExperience = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col sm={4} md={4} lg={6}>
-                        <h2>Condividi la tua esperienza</h2>
+                </Row>
+                <Row className='row-publication'>
+                    <Col sm={4} md={4} lg={8}>
                         <div className='form-container'>
                             <Form 
                             encType="multipart/form-data"

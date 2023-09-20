@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getSchools, allSchools, isLoading } from '../../States/SchoolState';
 import { Carousel, Col, Container, Row } from 'react-bootstrap';
 import Logo from './AssetsHero/woman-goes-surfing-logo.jpg'
@@ -64,6 +65,7 @@ const CarouselComponent = () => {
                                                 </div>
                                                 <div className="card-text">{school.address}</div>
                                                 <div className="card-text">{school.location}</div>
+                                                <Link to={`/SchoolDetails/${school._id}`}>Visualizza dettagli</Link>
                                             </div>
                                         ))}
                                     </div>

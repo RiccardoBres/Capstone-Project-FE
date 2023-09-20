@@ -3,20 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
-  background: rgb(240,235,171);
-  background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(247,235,136,1) 12%, rgba(243,223,255,1) 26%, rgba(243,201,255,1) 51%, rgba(237,181,251,1) 67%, rgba(154,155,246,1) 88%, rgba(120,121,255,1) 97%);
-}
+
 .container-school-page {
-  height: 190vh;
+  height: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 15rem;
+  padding-top: 10rem;
 }
-.container-card-school-page{
+
+.container-card-school-page {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -29,17 +27,20 @@ body{
   justify-content: center;
   text-align: center;
   color: rgb(85, 84, 84);
-  font-size: 23px;
+  font-size: 18px;
+  margin: 50px;
 
 }
-.search-input{
-    width: 70%;
-    background-color: aliceblue;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 50px;
+
+.search-input {
+  width: 70%;
+  background-color: aliceblue;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 50px;
 }
-.search-input input{
+
+.search-input input {
   text-align: center;
   color: black;
 }
@@ -56,12 +57,13 @@ body{
 
 .school-card {
   margin: 10px;
-  width: 300px;
+  width: 310px;
   height: 400px;
-  
+
   border: 1px solid #ddd;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.056);
 
 }
 
@@ -86,22 +88,65 @@ body{
   font-size: 1rem;
   color: #666;
 }
-.pagination{
+
+.pagination {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin: 50px;
 }
-.buttons-pagination{
+
+.buttons-pagination {
   display: flex;
   gap: 2rem;
 }
-.buttons-pagination button{
+
+.buttons-pagination button {
   background-color: black;
   color: white;
 }
-.buttons-pagination button:hover{
+
+.buttons-pagination button:hover {
   background-color: rgb(108, 108, 108);
   color: rgb(20, 19, 19);
+}
+
+
+/* SCHOOL DETAILS /////////////////// */
+
+.school-info-details {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background: transparent;
+  text-align: center;
+  color: rgb(101, 101, 101);
+}
+.school-info-details ul {
+  list-style-type: none; 
+}
+
+.school-details-container {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140vh;
+}
+.icon-details-school{
+  margin-right: 2px;
+}
+.card-school-details {
+  width: 100%px;
+  border: 1px solid #ddd; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.2s ease-in-out; 
+  display: flex;
+}
+
+
+.card-school-details:hover {
+  transform: scale(1.02); 
 }

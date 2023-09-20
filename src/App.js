@@ -6,6 +6,7 @@ import Profile from './Pages/Profile/Profile';
 import Posts from './Pages/Posts';
 import ShareExperience from './Pages/ShareExperience/ShareExperience';
 import School from './Pages/Schools/School';
+import SchoolDetails from './Pages/Schools/SchoolDetails';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Route element={<ProtectedRouter />}>
           <Route path="/profile/:userId" element={<Profile />} />
           <Route path="/shareExperience/:userId" element={<ShareExperience />} />
-          <Route path="/School" element={<School />} />
+          <Route path="/School/location/:location" element={<School />} />
+          <Route path="/SchoolDetails/:id" element={<SchoolDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>

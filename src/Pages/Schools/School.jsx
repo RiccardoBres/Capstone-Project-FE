@@ -1,49 +1,61 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import { getSchools, allSchools, getSchoolsByLocation } from "../../States/SchoolState";
+import { useLocation, useParams, Link } from 'react-router-dom';
+import { getSchools, allSchools, getSchoolsByLocation, schoolsByLocation } from "../../States/SchoolState";
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import CustomNavbar from '../../Components/NavBar/CustomNavbar';
 import Footer from '../../Components/Footer/Footer';
 import './School.css';
 import AccessRegistration from "../../Components/VolatileComponents/AccessRegistration";
 
-const School = () => {
-    const dispatch = useDispatch();
-    const schools = useSelector(allSchools) || [];
-    const [searchQuery, setSearchQuery] = useState('');
-    const [filteredSchools, setFilteredSchools] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const pageSize = 8;
-    const { search } = useLocation();
-    const params = new URLSearchParams(search);
-    const location = params.get('location');
-  
-    
-    const handleSearch = () => {
-      const filtered = schools.filter((school) => {
-        const query = searchQuery.toLowerCase();
-        return school.location.toLowerCase().includes(query);
-      });
-  
-      setFilteredSchools(filtered);
-      setCurrentPage(1); // Reimposta la pagina corrente a 1 quando esegui una nuova ricer
-    };
-  
-    useEffect(() => {
 
-      dispatch(getSchools());
-    }, [dispatch, location]);
-  
-    useEffect(() => {
-      handleSearch();
-    }, [searchQuery, schools]);
-  
-    const totalPages = Math.ceil(filteredSchools.length / pageSize);
-    const startIndex = (currentPage - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-    const schoolsToShow = filteredSchools.slice(startIndex, endIndex);
-  
+const School = () => {
+  const dispatch = useDispatch();
+  const { location } = useParams();
+  const schools = useSelector(allSchools) || [];
+  const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [displayedSchools, setDisplayedSchools] = useState([]);
+  const [allSchool, setAllSchool] = useState(false);
+  const [visibleSchools, setVisibleSchools] = useState([]);
+  const schoolByLocation = useSelector(schoolsByLocation)?.schools;
+  const pageSize = 8;
+
+
+  useEffect(() => {
+    if (allSchool) {
+      setVisibleSchools(schools);
+      setSearchQuery("");
+    } else if (schoolByLocation) {
+      setVisibleSchools(schoolByLocation);
+    }
+  }, [allSchool, schools, schoolByLocation]);
+
+  useEffect(() => {
+    if (location) {
+      const formattedLocation = location.split(',')[0];
+      dispatch(getSchoolsByLocation(formattedLocation));
+      console.log(location, schoolsByLocation);
+    }
+  }, [dispatch, location]);
+
+  const handleAllSchool = () => {
+    setAllSchool(true);
+
+  }
+
+  useEffect(() => {
+    const filtered = visibleSchools.filter((school) => {
+      const query = searchQuery.toLowerCase();
+      return query === '' || school.location.toLowerCase().includes(query);
+    });
+    setDisplayedSchools(filtered);
+    setCurrentPage(1);
+  }, [searchQuery, visibleSchools]);
+
+  const totalPages = Math.ceil(displayedSchools?.length / pageSize);
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
 
   return (
     <>
@@ -62,27 +74,31 @@ const School = () => {
               placeholder='Quale sarà la tua prossima meta?'
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              text= "ciaoo"
             />
           </div>
-          {filteredSchools && filteredSchools.length === 0 && (
-            <p>Nessuna scuola corrisponde ai criteri di ricerca.</p>
-          )}
+          <button onClick={() => handleAllSchool()}>Visualizza tutte</button>
         </div>
         <Row className='w-100'>
           <div className="container-card-school-page">
-            {filteredSchools.map((school) => (
-              <Col key={school._id} xs={12} sm={6} md={6} lg={3}>
-                <Card className='school-card'>
-                  <Card.Img variant='top' src={school.image} />
-                  <Card.Body>
-                    <Card.Title>{school.name}</Card.Title>
-                    <Card.Text>{school.location}</Card.Text>
-                    <Card.Text>{school.description}</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
+            {displayedSchools?.length > 0 ? (
+              displayedSchools.slice(startIndex, endIndex).map((school) => (
+                <Col key={school._id} xs={12} sm={6} md={6} lg={3}>
+                  <Card className='school-card'>
+                    <Card.Img variant='top' src={school.image} />
+                    <Card.Body>
+                      <Card.Title>{school.name}</Card.Title>
+                      <Card.Text>{school.location}</Card.Text>
+                      <Card.Text>{school.description}</Card.Text>
+                      <Link to={`/SchoolDetails/${school._id}`}><p>Visualizza dettagli</p></Link>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))
+            ) : (
+              <div>
+                <p>Nessuna scuola nelle vicinanze</p>
+              </div>
+            )}
           </div>
         </Row>
         <div className="pagination">
@@ -110,4 +126,40 @@ const School = () => {
   )
 }
 
+
+
 export default School;
+
+
+/* const dispatch = useDispatch();
+  const schools = useSelector(allSchools) || [];
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredSchools, setFilteredSchools] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 8;
+  const { search } = useLocation();
+  const params = new URLSearchParams(search);
+  const locationParam = params.get('location'); // Ottieni la località dalla URL
+
+  useEffect(() => {
+    if (locationParam) {
+      dispatch(getSchoolsByLocation(locationParam));
+    } else {
+      setFilteredSchools([]);
+    }
+  }, [dispatch, locationParam]);
+
+  useEffect(() => {
+    const filtered = schools.filter((school) => {
+      const query = searchQuery.toLowerCase();
+      return school.location.toLowerCase().includes(query);
+    });
+
+    setFilteredSchools(filtered);
+    setCurrentPage(1);
+  }, [searchQuery, schools]);
+
+  const totalPages = Math.ceil(filteredSchools.length / pageSize);
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+  const schoolsToShow = filteredSchools.slice(startIndex, endIndex); */

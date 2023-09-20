@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: white!important;
+  background-color: white !important;
 }
 
 .intro-bacheca {
@@ -13,8 +13,9 @@ body {
   flex-direction: column;
   width: 100%;
   font-size: 22px;
-  color:  #0b0b0b;
+  color: #fffbfb;
   padding: 20px;
+  
 }
 
 .container-post {
@@ -22,13 +23,13 @@ body {
   text-align: center;
   margin-bottom: 3rem;
 }
-.light-section{
-  background: rgb(240,235,171);
-  background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(247,235,136,1) 12%, rgba(243,223,255,1) 26%, rgba(243,201,255,1) 51%, rgba(237,181,251,1) 67%, rgba(154,155,246,1) 88%, rgba(120,121,255,1) 97%);  width: 100%;
+
+.light-section {
+  background-color: rgba(255, 255, 255, 0.319);
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-
 }
+
 .beach-container-posts {
   text-align: center;
   display: flex;
@@ -42,11 +43,16 @@ body {
   border-radius: 15px;
   padding-bottom: 5rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  background: rgb(240,235,171);
-  background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(247,235,136,1) 12%, rgba(243,223,255,1) 26%, rgba(243,201,255,1) 51%, rgba(237,181,251,1) 67%, rgba(154,155,246,1) 88%, rgba(120,121,255,1) 97%);  width: 100%;
+ background-color: rgba(255, 255, 255, 0.319);
 }
-.search-title{
+
+.search-title {
   color: #2F70AF;
+}
+
+.decoration-none {
+  text-decoration: none;
+  color: white;
 }
 
 .beach-container-posts::-webkit-scrollbar {
@@ -64,26 +70,36 @@ body {
 /* Card delle pubblicazioni */
 .card-post {
   width: 500px;
-  height: 380px;
-  background-color: #eeecec;
+  height: auto;
+  min-height: 380px;
+  background-color: rgba(255, 255, 255, 0.453);
   color: #151515;
   border-radius: 8px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .card-post:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
+}
+.post-info-date{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.card-footer-text{
+  margin-bottom: 0;
 }
 
+.post-info-date img{
+   width: 35px;
+   height: 35px;
+   border-radius: 50%;
+}
 .card-img-post {
   max-width: 500px;
   max-height: 250px;
-}
-
-.card-img-post:hover {
-  box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.5);
-
 }
 
 .card-title-post {
@@ -94,19 +110,29 @@ body {
   color: #151515;
 }
 
+.decoration-none button:hover {
+  color: black;
+}
+
 .button-details {
   background-color: rgb(16, 16, 16);
   color: rgb(249, 246, 246);
   cursor: pointer;
   margin: 30px 30px;
 }
-.button-details-card{
+
+.button-details-card {
   background-color: rgb(16, 16, 16);
   color: rgb(249, 246, 246);
   cursor: pointer;
-  width: 245px;
+  width: 50%;
   margin-top: 30px;
-  gap: 10px;
+}
+
+.button-details-card:hover {
+  background: rgb(240, 235, 171);
+  background: linear-gradient(154deg, rgba(240, 235, 171, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 7%, rgba(243, 201, 255, 1) 38%, rgba(247, 223, 252, 1) 82%, rgba(204, 204, 255, 1) 97%, rgba(194, 195, 248, 1) 100%);
+  color: black !important;
 }
 
 .buttons-school-reviews {

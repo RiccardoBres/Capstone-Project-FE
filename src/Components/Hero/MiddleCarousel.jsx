@@ -15,7 +15,7 @@ const MiddleCarousel = () => {
                 <em className='title-carousel mb-3'>~ Fatti accompagnare in un esperienza magica ~</em>
                 <em className='intro'>Benvenuti alla nostra pagina dedicata alle prenotazioni per mete surfistiche indimenticabili! <br /> Se siete alla ricerca dell'onda perfetta e di un'avventura unica sull'acqua, siete nel posto giusto. <br />La nostra piattaforma vi guiderà passo dopo passo nell'emozionante processo di prenotazione di esperienze di surf straordinarie. </em>
                 <hr className='color-light' />
-                <Carousel>
+                <Carousel className='middle-carousel'>
                     <Carousel.Item>
                         <img className='carousel-img' src={Surfimmage} alt="First slide" />
                         <Carousel.Caption>

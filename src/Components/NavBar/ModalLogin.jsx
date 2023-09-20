@@ -25,7 +25,8 @@ const ModalLogin = ({ showModal, setShowModal, setUserData }) => {
         dispatch(loginUser(loginFormData))
             .then((response) => {
                 handleClose();
-                setUserData(session.decodedSession); 
+                setUserData(session.decodedSession);
+                window.location.reload();
             })
             .catch((error) => {
                 console.error(error);

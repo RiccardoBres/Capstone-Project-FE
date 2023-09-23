@@ -1,4 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+<<<<<<< HEAD
+=======
+import axios from 'axios';
+>>>>>>> CSS_IMPLEMENTATION
 
 const initialState = {
     isLoading: false,
@@ -20,12 +24,48 @@ export const getBeach = createAsyncThunk(
         }
     }
 )
+<<<<<<< HEAD
+=======
+export const postBeach = createAsyncThunk(
+    'beach/postBeach',
+    async (payload) => {
+        const token = JSON.parse(localStorage.getItem("userLoggedIn"));
+        const form = new FormData()
+        form.append("name", payload.name);
+        form.append("location", payload.location);
+        form.append("type", payload.type);
+        form.append("level", payload.level);
+        form.append("image", payload.image);
+        form.append("user", payload.user);
+        console.log(form);
+        
+        try {
+            const res = await axios.post('http://localhost:9090/beach/create', form, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                    'Authorization': token
+                }
+            })
+            console.log(res);
+            return res.data;
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+)
+
+>>>>>>> CSS_IMPLEMENTATION
 
 export const getComment = createAsyncThunk(
     'comment/getComment',
     async (beachId) => {
         try {
+<<<<<<< HEAD
             const data = await fetch(`http://localhost:9090/beach/${beachId}/comments`);
+=======
+            const data = await fetch(`HTTP://localhost:9090/beach/${beachId}/comments`);
+>>>>>>> CSS_IMPLEMENTATION
             const response = data.json();
             return response
         } catch (error) {
@@ -97,6 +137,20 @@ export const beachSlice = createSlice({
                 state.isLoading = true;
                 state.comment = action.payload;
             })
+<<<<<<< HEAD
+=======
+            .addCase(postBeach.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(postBeach.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.beach = action.payload;
+            })
+            .addCase(postBeach.rejected, (state) => {
+                state.isLoading = false;
+                state.error = "Not possible find schools";
+            })
+>>>>>>> CSS_IMPLEMENTATION
     }
 });
 

@@ -42,15 +42,25 @@
     color: white;
 }
 .custom-dropdown{
+<<<<<<< HEAD
     height: 155px;
+=======
+    height: 150px;
+>>>>>>> CSS_IMPLEMENTATION
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+<<<<<<< HEAD
     border: 1px solid rgba(0, 0, 0, 0.334);
     background-color: white;
 }
+=======
+    background-color: transparent;
+}
+
+>>>>>>> CSS_IMPLEMENTATION
 .drop-title{
     text-align: center;
     cursor: pointer;
@@ -58,12 +68,24 @@
     margin-top: 10px;
     font-weight: bold;
 }
+<<<<<<< HEAD
 .dropdown-menu {
     width: 15px!important;
     height: 150px;
     transform: translateX(-50%);
     background-color: transparent;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+=======
+
+.dropdown-menu {
+    transform: translateX(-50%);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff80;
+}
+.user-name-nav{
+    color: white!important;
+    font-size: 18px;
+>>>>>>> CSS_IMPLEMENTATION
 }
 
 .modal-footer{

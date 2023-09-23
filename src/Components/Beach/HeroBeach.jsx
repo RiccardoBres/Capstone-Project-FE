@@ -8,17 +8,34 @@ import { Carousel } from 'react-bootstrap';
 import { allBeach, getBeach, isLoading } from '../../States/BeachState';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../Hero/AssetsHero/woman-goes-surfing-logo.jpg'
+<<<<<<< HEAD
 
 const HeroBeach = () => {
+=======
+import { useSession } from '../../Middleware/ProtectedRoutes';
+
+const HeroBeach = ({ userData }) => {
+    const session = useSession();
+>>>>>>> CSS_IMPLEMENTATION
     const dispatch = useDispatch();
     const beaches = useSelector(allBeach);
     const loading = useSelector(isLoading);
     const navigate = useNavigate();
 
 
+<<<<<<< HEAD
     const handleAuthorClick = (userId) => {
         navigate(`/profile/${userId}`);
     };
+=======
+
+    const handleAuthorClick = (userId) => {
+        navigate(`/profile/${userId}`);
+    };
+    const handleShareExperiencePage = (userId) => {
+            navigate(`/shareExperience/${userId}`);
+    }
+>>>>>>> CSS_IMPLEMENTATION
 
     useEffect(() => {
         dispatch(getBeach());
@@ -29,12 +46,17 @@ const HeroBeach = () => {
         <>
             <Container fluid>
                 <Row className='beach-container'>
+<<<<<<< HEAD
+=======
+                    <Col lg={12} md={6} xs={12} className='order-lg-1 beach-description'>
+>>>>>>> CSS_IMPLEMENTATION
                     <div className='container-Logo'>
                         <img
                             className='logo'
                             src={Logo}
                             alt="Immagine logo scuola surf"
                         />
+<<<<<<< HEAD
                         <hr className='hr-dimension' />
                     </div>
                     <Col lg={6} className='order-lg-1 beach-description'>
@@ -46,14 +68,39 @@ const HeroBeach = () => {
                         <em className='intro-beach'>
                             La nostra pagina ti consente di condividere le tue avventure in spiaggia, aggiungendo dettagli sulle spiagge che hai esplorato e lasciando recensioni sulle tue esperienze. Hai trovato una spiaggia con onde perfette? Vuoi condividere le tue migliori sessioni di surf? Carica foto e descrizioni delle tue giornate in acqua, aggiungi informazioni sulle condizioni dell'onda e crea una traccia indelebile delle tue avventure.
                         </em>
+=======
+                    </div>
+                        <p className='beach-title'>
+                            Condividi le tue esperienze <br />
+                            Esprimi la tua passione per il surf e connettiti con una community appassionata di surfisti di tutto il mondo.
+                            <hr className='hr-beach' />
+                        </p>
+                        <p className='intro-beach'>
+                            La nostra pagina ti consente di condividere le tue avventure in spiaggia, aggiungendo dettagli sulle spiagge che hai esplorato e lasciando recensioni sulle tue esperienze. Hai trovato una spiaggia con onde perfette? Vuoi condividere le tue migliori sessioni di surf? Carica foto e descrizioni delle tue giornate in acqua, aggiungi informazioni sulle condizioni dell'onda e crea una traccia indelebile delle tue avventure.
+                        </p>
+>>>>>>> CSS_IMPLEMENTATION
                         <div className="buttons-container">
                             <Link to='/signUp'>
                                 <Button variant="dark" className="btn-community">Entra a far parte della community</Button>
                             </Link>
+<<<<<<< HEAD
                             <Button variant="secondary" className="btn-share">Condividi una tua esperienza</Button>
                         </div>
                     </Col>
                     <Col lg={6} className='order-lg-2 beach-list'>
+=======
+                            <Button
+                                 onClick={() => session.decodedSession && handleShareExperiencePage(session.decodedSession.id)}
+                                variant="secondary"
+                                className="btn-share"
+                            >
+                                Condividi una tua esperienza
+                            </Button>
+
+                        </div>
+                    </Col>
+                    <Col lg={6} md={6} xs={12} className='order-lg-2 beach-list'>
+>>>>>>> CSS_IMPLEMENTATION
                         <Carousel
                             className='carousel-beach'
                             indicators={false}

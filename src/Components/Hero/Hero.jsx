@@ -34,9 +34,15 @@ const Hero = () => {
             <Container fluid>
                 <Row className='d-flex'>
                     <Col md={6} className={`container-intro ${showIntro ? 'visible' : ''}`}>
+<<<<<<< HEAD
                         <em className='title'>
                             Trova la tua meta
                         </em>
+=======
+                        <p className='title-hero'>
+                            Trova la tua meta
+                        </p>
+>>>>>>> CSS_IMPLEMENTATION
                         <br />
                         <p className='intro-video'>Le migliori mete Surfistiche a portata di un click.
                             Programma la tua vacanza ideale e scopri i servizi più adatti a te! <br />
@@ -45,7 +51,13 @@ const Hero = () => {
                             <Link to={"/signUp"}>
                                 <Button variant="dark" className="mr-2">Unisciti alla community</Button>
                             </Link>
+<<<<<<< HEAD
                             <Button variant="secondary">Programma la tua prossima meta</Button>
+=======
+                            <Link to={"/posts"}>
+                                <Button variant="secondary">Programma la tua prossima meta</Button>
+                            </Link>
+>>>>>>> CSS_IMPLEMENTATION
                         </div>
 
                     </Col>

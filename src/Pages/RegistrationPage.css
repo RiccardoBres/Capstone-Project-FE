@@ -6,6 +6,7 @@
 
 body {
     margin: 0;
+<<<<<<< HEAD
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #fae0e4!important;
@@ -15,13 +16,40 @@ body {
 .registration-container{
     width: 100%;
     height: 120vh;
+=======
+    font-family: Arial, sans-serif;
+    background-color: #fac1c1;
+
+}
+
+.registration-container {
+    width: 100%;
+    height: 140vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(36, 36, 36);
+    color: rgb(150, 148, 148);
+    padding-top: 9rem;
+}
+
+.title-registration {
+    font-size: 30px;
+    color: rgb(33, 32, 32);
+}
+.intro-registration{
+>>>>>>> CSS_IMPLEMENTATION
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+<<<<<<< HEAD
     color: rgb(36, 36, 36);
 }
 .title-registration{
     font-size: 30px;
     color: rgb(46, 45, 45);
 }
+=======
+}
+>>>>>>> CSS_IMPLEMENTATION

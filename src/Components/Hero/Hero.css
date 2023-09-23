@@ -11,6 +11,7 @@ body {
 }
 
 .video-container {
+<<<<<<< HEAD
   position: relative;
   width: 100%;
   height: 130vh;
@@ -28,6 +29,25 @@ body {
   z-index: -1;
   transition: opacity 1s ease-in-out; 
   overflow: hidden;
+=======
+    position: relative;
+    width: 100%;
+    height: 130vh;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    transition: opacity 1s ease-in-out;
+    overflow: hidden;
+>>>>>>> CSS_IMPLEMENTATION
 }
 
 
@@ -41,11 +61,19 @@ body {
     opacity: 0;
     transition: opacity 1s ease-in-out;
     overflow: hidden;
+<<<<<<< HEAD
   }
   
   .container-intro.visible {
     opacity: 1;
   }
+=======
+}
+
+.container-intro.visible {
+    opacity: 1;
+}
+>>>>>>> CSS_IMPLEMENTATION
 
 .title {
     font-size: 25px;
@@ -53,15 +81,30 @@ body {
     color: #f9efea;
 
 }
+<<<<<<< HEAD
+=======
+
+.title-hero {
+    font-size: 45px;
+    text-align: center;
+    color: #f9efea;
+}
+
+>>>>>>> CSS_IMPLEMENTATION
 /* ///////// MIDDLE CAROUSEL */
 .title-carousel {
     font-size: 25px;
     text-align: center;
+<<<<<<< HEAD
     color: rgb(43, 40, 40)!important;
+=======
+    color: rgb(64, 64, 64) !important;
+>>>>>>> CSS_IMPLEMENTATION
     margin-bottom: 10px;
 }
 
 .intro {
+<<<<<<< HEAD
     font-size: 20px!important;
     color: rgb(34, 32, 32)!important;
     font-weight: 200;
@@ -69,6 +112,16 @@ body {
 .intro-video{
     font-size: 25px!important;
     color: rgb(248, 240, 240)!important;
+=======
+    font-size: 20px !important;
+    color: rgb(71, 71, 71) !important;
+    font-weight: 200;
+}
+
+.intro-video {
+    font-size: 25px !important;
+    color: rgb(248, 240, 240) !important;
+>>>>>>> CSS_IMPLEMENTATION
     font-weight: 200;
 }
 
@@ -82,11 +135,19 @@ body {
     margin-bottom: 60px;
 }
 
+<<<<<<< HEAD
 .carousel-img {
     max-width: 50%;
     height: auto;
     border-radius: 10px;
     margin: 0 auto;
+=======
+
+.carousel-img {
+    max-width: 75%;
+    height: 30%;
+    border-radius: 10px;
+>>>>>>> CSS_IMPLEMENTATION
     display: block;
 }
 
@@ -97,9 +158,17 @@ body {
     justify-content: center;
     min-height: 130vh;
     text-align: center;
+<<<<<<< HEAD
     background-color: white;
  }
  
+=======
+    background: rgb(240, 235, 171);
+    background: linear-gradient(154deg, rgba(240, 235, 171, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 7%, rgba(243, 201, 255, 1) 38%, rgba(247, 223, 252, 1) 82%, rgba(204, 204, 255, 1) 97%, rgba(194, 195, 248, 1) 100%);
+
+}
+
+>>>>>>> CSS_IMPLEMENTATION
 .carousel-container-middle {
     display: flex;
     flex-direction: column;
@@ -107,7 +176,12 @@ body {
     justify-content: center;
     min-height: 130vh;
     text-align: center;
+<<<<<<< HEAD
     background-color: white;
+=======
+    background: rgb(240, 235, 171);
+    background: linear-gradient(154deg, rgba(240, 235, 171, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 7%, rgba(243, 201, 255, 1) 38%, rgba(247, 223, 252, 1) 82%, rgba(204, 204, 255, 1) 97%, rgba(194, 195, 248, 1) 100%);
+>>>>>>> CSS_IMPLEMENTATION
 }
 
 .col-carousel-and-text {
@@ -115,8 +189,13 @@ body {
     flex-direction: column;
     align-items: center;
     color: black;
+<<<<<<< HEAD
     width: 80%;
     height: 80%;
+=======
+    width: 100%;
+    height: 100%;
+>>>>>>> CSS_IMPLEMENTATION
     gap: 3rem;
 }
 
@@ -139,14 +218,22 @@ body {
 .card-container {
     min-width: 300px;
     width: 300px;
+<<<<<<< HEAD
     min-height: 350px;
     border-radius: 25px;
     margin: 10px;
      color: black;
+=======
+    min-height: 360px;
+    border-radius: 25px;
+    margin: 10px;
+    color: black;
+>>>>>>> CSS_IMPLEMENTATION
     box-shadow: 0 14px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background-repeat: no-repeat;
     background-size: cover;
+<<<<<<< HEAD
     background-color: rgba(224, 219, 219, 0.993);
     border: 0.5px solid rgb(240, 236, 236);
     
@@ -155,23 +242,57 @@ body {
 .card-container:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+=======
+    background-color: rgba(255, 255, 255, 0.312);
+    color: rgba(255, 255, 255, 0.377);
+}
+
+.card-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.text-container {
+    padding-bottom: 10rem;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+>>>>>>> CSS_IMPLEMENTATION
 }
 
 .card-content {
     padding: 16px;
 }
 
+<<<<<<< HEAD
+=======
+.color-dark {
+    color: black;
+}
+
+
+>>>>>>> CSS_IMPLEMENTATION
 
 .card-title {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 8px;
+<<<<<<< HEAD
     color: rgb(14, 14, 14);
+=======
+    color: rgb(25, 25, 25);
+>>>>>>> CSS_IMPLEMENTATION
 }
 
 .card-text {
     font-size: 14px;
+<<<<<<< HEAD
     color: #171515;
+=======
+    color: #383838;
+>>>>>>> CSS_IMPLEMENTATION
     margin-bottom: 12px;
 }
 
@@ -213,11 +334,19 @@ body {
 
 /* Schoool */
 
+<<<<<<< HEAD
 .title-school{
+=======
+.title-school {
+>>>>>>> CSS_IMPLEMENTATION
     font-size: 25px;
     text-align: center;
     color: #212020;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> CSS_IMPLEMENTATION
 .logo-school {
     border-radius: 50%;
     width: 60px;
@@ -225,6 +354,7 @@ body {
     margin-bottom: 5px;
     margin-top: 65px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+<<<<<<< HEAD
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 .logo-school:hover {
@@ -235,3 +365,52 @@ body {
     font-size: 20px;
 }
 
+=======
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-school:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.intro-school {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 20%;
+    /* Modifica la larghezza delle frecce */
+    opacity: 1;
+    /* Opacità completa */
+    border: none;
+    /* Rimuovi il bordo */
+    top: 50%;
+    /* Posiziona al centro verticalmente */
+    transform: translateY(-50%);
+    /* Posiziona al centro verticalmente */
+    margin: 0;
+    color: rgba(158, 158, 158, 0.51);
+}
+
+/* Stile per le frecce del carosello quando sono attive */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    transition: 0.3s ease;
+    /* Aggiungi un effetto di transizione al passaggio del mouse */
+}
+
+/* Stile per le icone delle frecce */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    padding: 10px;
+    /* Spaziatura interna per le icone */
+    font-size: 20px;
+    /* Dimensione del carattere delle icone */
+    color: rgb(16, 16, 16) !important;
+}
+>>>>>>> CSS_IMPLEMENTATION

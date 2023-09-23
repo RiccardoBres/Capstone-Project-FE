@@ -48,6 +48,11 @@
     justify-content: center;
     flex-direction: row; 
     margin-bottom: 10px;
+<<<<<<< HEAD
+=======
+    margin-top: 10px;
+    gap: 1rem;
+>>>>>>> CSS_IMPLEMENTATION
 }
 
 .social-icons>* {

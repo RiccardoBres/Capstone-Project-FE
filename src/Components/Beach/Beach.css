@@ -2,12 +2,23 @@
 
 .beach-container {
     display: flex;
+<<<<<<< HEAD
     align-items: center;
     justify-content: center;
     text-align: center;
     background-color: white;
     padding: 20px;
     padding-bottom: 85px
+=======
+    align-items: end;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    gap: 2rem;
+    background: rgb(240,235,171);
+    background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 7%, rgba(243,201,255,1) 38%, rgba(247,223,252,1) 82%, rgba(204,204,255,1) 97%, rgba(194,195,248,1) 100%);
+>>>>>>> CSS_IMPLEMENTATION
 }
 
 .container-Logo {
@@ -36,7 +47,11 @@
 
 .beach-title {
     font-size: 22px;
+<<<<<<< HEAD
     color: rgb(14, 12, 12);
+=======
+    color: rgb(52, 51, 51);
+>>>>>>> CSS_IMPLEMENTATION
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,14 +59,26 @@
 
 .intro-beach {
     font-size: 18px;
+<<<<<<< HEAD
     color: rgb(30, 28, 28);
+=======
+    color: rgb(69, 67, 67);
+>>>>>>> CSS_IMPLEMENTATION
 }
 
 .beach-description {
     margin-top: 20px;
     width: 45%;
 }
+<<<<<<< HEAD
 
+=======
+@media (max-width: 768px) {
+    .beach-description {
+      width: 100%;
+    }
+  }
+>>>>>>> CSS_IMPLEMENTATION
 .hr-dimension {
     color: rgb(45, 44, 44);
     width: 80%;
@@ -66,10 +93,14 @@
     max-width: 600px;
     max-height: 500px;
     height: 500px;
+<<<<<<< HEAD
     background-color: rgba(244, 239, 239, 0.993);
     border: 0.5px solid rgb(214, 208, 208);
 
 
+=======
+   background-color: rgba(255, 255, 255, 0.227);
+>>>>>>> CSS_IMPLEMENTATION
 }
 
 .carousel-beach:hover {
@@ -168,10 +199,15 @@
 
 .btn-community:hover,
 .btn-share:hover {
+<<<<<<< HEAD
     background: #FBD3E9;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #BB377D, #FBD3E9);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #BB377D, #FBD3E9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
+=======
+    background-color: #292828;
+}
+>>>>>>> CSS_IMPLEMENTATION
 
 .loading-spinner-container {
     display: flex;
@@ -187,6 +223,13 @@
     border-right-color: transparent;
     animation: spinner-border 0.75s linear infinite;
 }
+<<<<<<< HEAD
+=======
+.hr-beach{
+    color: black;
+    width: 85%;
+}
+>>>>>>> CSS_IMPLEMENTATION
 
 @keyframes spinner-border {
     to {

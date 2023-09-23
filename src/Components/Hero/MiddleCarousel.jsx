@@ -12,10 +12,17 @@ const MiddleCarousel = () => {
     return (
         <>
             <div className='carousel-container-middle'>
+<<<<<<< HEAD
                 <em className='title-carousel mb-3'>~ Fatti accompagnare in un esperienza magica ~</em>
                 <em className='intro'>Benvenuti alla nostra pagina dedicata alle prenotazioni per mete surfistiche indimenticabili! <br /> Se siete alla ricerca dell'onda perfetta e di un'avventura unica sull'acqua, siete nel posto giusto. <br />La nostra piattaforma vi guiderà passo dopo passo nell'emozionante processo di prenotazione di esperienze di surf straordinarie. </em>
                 <hr className='color-light' />
                 <Carousel>
+=======
+                <p className='title-carousel mb-3'>~ Fatti accompagnare in un esperienza magica ~</p>
+                <p className='intro'>Benvenuti alla nostra pagina dedicata alle prenotazioni per mete surfistiche indimenticabili! <br /> Se siete alla ricerca dell'onda perfetta e di un'avventura unica sull'acqua, siete nel posto giusto. <br />La nostra piattaforma vi guiderà passo dopo passo nell'emozionante processo di prenotazione di esperienze di surf straordinarie. </p>
+                <hr className='color-light' />
+                <Carousel className='middle-carousel'>
+>>>>>>> CSS_IMPLEMENTATION
                     <Carousel.Item>
                         <img className='carousel-img' src={Surfimmage} alt="First slide" />
                         <Carousel.Caption>
@@ -27,14 +34,22 @@ const MiddleCarousel = () => {
                         <img className='carousel-img' src={Surfimmage3} alt="First slide" />
                         <Carousel.Caption>
                             <h3>Scegli chi ti guiderà</h3>
+<<<<<<< HEAD
                             <em>Trova l'istruttore che più fa al caso tuo</em>
+=======
+                            <p>Trova la scuola che più fa al caso tuo</p>
+>>>>>>> CSS_IMPLEMENTATION
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item className='carousel-item carousel-slide'>
                         <img className='carousel-img' src={Surfimmage4} alt="First slide" />
                         <Carousel.Caption>
                             <h3>Trova il gruppo ideale</h3>
+<<<<<<< HEAD
                             <p> Organizza sessioni di gruppo con persone da tutta Europa</p>
+=======
+                            <p> Scambia opinioni sulle spiagge con persone da tutta Europa</p>
+>>>>>>> CSS_IMPLEMENTATION
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>

@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.beach-card-container-bcc {
+  max-height: 400px;
+  width: 85%;
+  overflow-x: hidden;
+  box-shadow: 0 4px 4px 6px rgba(0, 0, 0, 0.1); 
+  display: flex;
+  margin: 50px;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.215);
+}
+
+.beach-card-container-bcc::-webkit-scrollbar {
+  display: none;
+}
+
+.profile-row {
+  width: 90%;
+  color: rgb(97, 96, 96);
+  background-color: rgb(248 241 241 / 21%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  border-radius: 05px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  margin-top: 15rem;
+  box-shadow: 2px 4px 10px 12px rgba(0, 0, 0, 0.2);
+
+}
+
+.profile-page-container {
+  width: 100%;
+  color: rgb(18, 18, 18);
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  background-color: rgba(255, 255, 255, 0.164);
+  box-shadow: 0 4px 4px 6px rgba(0, 0, 0, 0.1); 
+
+}
+
+.beach-card-bcc {
+  width: 80%;
+}
+.opaque-background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.51);
+  margin: 50px;
+  border-radius: 15px;
+  width: 100%;
+  box-shadow: 0px 15px 25px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 5rem;
+  position: relative; /* Per creare un contesto relativo */
+}
+.opaque-background::before {
+  content: "";
+  background-image: url(https://img.freepik.com/free-photo/surfer-ocean-with-breathtaking-sunset-sky-background_181624-6844.jpg?size=626&ext=jpg&ga=GA1.1.141789769.1682703468&semt=ais);
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5; /* Imposta l'opacità desiderata */
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1; /* Posiziona l'elemento sotto il contenuto principale */
+}
+
+
+
+.container-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 50px;
+  background-color: white;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.image-profile {
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.image-profile:hover {
+  box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+/* FORM */
+
+.share-experience-form {
+  width: 100%;
+  height: 200vh;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(8, 8, 8);
+}
+
+.share-experience-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  width: auto;
+  padding: 15px;
+  background-color: transparent;
+  border-radius: 15px;
+  box-shadow: 2px 4px 10px 12px rgba(0, 0, 0, 0.2);
+  margin: 50px;
+
+
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.form-group input[type="file"] {
+  padding: 6px;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #383838;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #171717;
+}

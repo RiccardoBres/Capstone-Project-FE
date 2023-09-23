@@ -3,18 +3,20 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .beach-card-container-bcc {
   max-height: 400px;
-    width: 85%;
-    overflow-x: hidden;
-    box-shadow: 2px 4px 10px 12px rgba(0, 0, 0, 0.2);
-    display: flex;
-    margin: 50px;
-    justify-content: center;
-    border-radius: 8px;
-    padding: 25px;
-    background-color: transparent;
+  width: 85%;
+  overflow-x: hidden;
+  box-shadow: 0 4px 4px 6px rgba(0, 0, 0, 0.1); 
+  display: flex;
+  margin: 50px;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 25px;
+  background-color: white;
 }
+
 .beach-card-container-bcc::-webkit-scrollbar {
   display: none;
 }
@@ -22,16 +24,18 @@
 .profile-row {
   width: 90%;
   color: rgb(97, 96, 96);
-  background-color: rgba(255, 255, 255, 0.319);
+  background-color: rgba(248, 241, 241, 0.885);
   background-size: cover;
   background-position: center;
   background-repeat: repeat;
-  border-radius: 15px;
+  border-radius: 05px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5rem;
   margin-top: 15rem;
+  box-shadow: 2px 4px 10px 12px rgba(0, 0, 0, 0.2);
+
 }
 
 .profile-page-container {
@@ -43,23 +47,28 @@
   border-radius: 15px;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 4px 10px 12px rgba(0, 0, 0, 0.2);
   z-index: 99;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.568);
+  box-shadow: 0 4px 4px 6px rgba(0, 0, 0, 0.1); 
+
 }
+
 .beach-card-bcc {
- width: 80%;
+  width: 80%;
 }
+
 .row-publication {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
-  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.51);
   margin: 50px;
   border-radius: 15px;
-  width: 65%;
+  width: 100%;
   box-shadow: 0px 15px 25px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 5rem;
+  background-image: url(https://img.freepik.com/free-photo/silhouette-one-person-jogging-sunset-generated-by-ai_188544-30990.jpg?w=1380&t=st=1695327568~exp=1695328168~hmac=a654135405bccf86cf4d626f0019e535e1041b284bdbeac887207d0eaf94788f);
+  background-position: center;
 
 }
 
@@ -100,6 +109,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  color: white;
 }
 
 .share-experience-form h2 {
@@ -108,12 +118,13 @@
 }
 
 .form-container {
-  width: 350px;
+  width: auto;
   padding: 15px;
   background-color: transparent;
   border-radius: 15px;
   box-shadow: 2px 4px 10px 12px rgba(0, 0, 0, 0.2);
   margin: 50px;
+
 
 }
 
@@ -142,7 +153,7 @@ button[type="submit"] {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #383838;
   color: #fff;
   border: none;
   border-radius: 3px;
@@ -150,5 +161,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #171717;
 }

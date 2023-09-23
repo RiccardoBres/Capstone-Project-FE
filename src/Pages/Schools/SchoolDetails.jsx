@@ -26,6 +26,7 @@ const SchoolDetails = () => {
     <Container className="school-details-container">
         {school ? (
           <Row>
+            <h1 className='title-school-details'>{school.name}</h1>
             <Col lg={6} md={6} xs={12} >
               <Card className="card-school-details">
                 <Card.Img variant="top" src={school.image} />

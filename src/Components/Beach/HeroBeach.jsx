@@ -35,23 +35,22 @@ const HeroBeach = ({ userData }) => {
         <>
             <Container fluid>
                 <Row className='beach-container'>
+                    <Col lg={12} md={6} xs={12} className='order-lg-1 beach-description'>
                     <div className='container-Logo'>
                         <img
                             className='logo'
                             src={Logo}
                             alt="Immagine logo scuola surf"
                         />
-                        <hr className='hr-dimension' />
                     </div>
-                    <Col lg={6} className='order-lg-1 beach-description'>
-                        <em className='beach-title'>
+                        <p className='beach-title'>
                             Condividi le tue esperienze <br />
                             Esprimi la tua passione per il surf e connettiti con una community appassionata di surfisti di tutto il mondo.
-                            <hr className='color-light' />
-                        </em>
-                        <em className='intro-beach'>
+                            <hr className='hr-beach' />
+                        </p>
+                        <p className='intro-beach'>
                             La nostra pagina ti consente di condividere le tue avventure in spiaggia, aggiungendo dettagli sulle spiagge che hai esplorato e lasciando recensioni sulle tue esperienze. Hai trovato una spiaggia con onde perfette? Vuoi condividere le tue migliori sessioni di surf? Carica foto e descrizioni delle tue giornate in acqua, aggiungi informazioni sulle condizioni dell'onda e crea una traccia indelebile delle tue avventure.
-                        </em>
+                        </p>
                         <div className="buttons-container">
                             <Link to='/signUp'>
                                 <Button variant="dark" className="btn-community">Entra a far parte della community</Button>
@@ -66,7 +65,7 @@ const HeroBeach = ({ userData }) => {
 
                         </div>
                     </Col>
-                    <Col lg={6} className='order-lg-2 beach-list'>
+                    <Col lg={6} md={6} xs={12} className='order-lg-2 beach-list'>
                         <Carousel
                             className='carousel-beach'
                             indicators={false}

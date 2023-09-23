@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const initialState= {
+const initialState = {
     isAuthenticated: false,
     user: [],
     error: null,
@@ -9,16 +9,19 @@ const initialState= {
 
 export const loginUser = createAsyncThunk(
     'auth/loginUser',
-    async (loginFormData) => {
+    async (loginFormData, { rejectWithValue }) => {
         try {
             const response = await axios.post('http://localhost:9090/login', loginFormData);
             const token = response.data.token;
             localStorage.setItem('userLoggedIn', JSON.stringify(token));
             return token;
         } catch (error) {
-            throw error;
+            console.log(error.response.data.message);
+            return rejectWithValue(error.response.data.message);
         }
-    });
+    }
+);
+
 
 const authSlice = createSlice({
     initialState,
@@ -29,10 +32,10 @@ const authSlice = createSlice({
                 state.isAuthenticated = true;
                 state.user = action.payload;
             })
-            .addCase(loginUser.rejected, (state) => {
+            .addCase(loginUser.rejected, (state, action) => {
                 state.isAuthenticated = false;
                 state.user = null;
-                state.error = 'Access denied'
+                state.error = action.payload;
             });
     },
 });

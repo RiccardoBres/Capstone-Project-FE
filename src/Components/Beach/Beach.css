@@ -2,11 +2,12 @@
 
 .beach-container {
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: center;
     text-align: center;
-    padding: 20px;
-    padding-bottom: 85px;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    gap: 2rem;
     background: rgb(240,235,171);
     background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 7%, rgba(243,201,255,1) 38%, rgba(247,223,252,1) 82%, rgba(204,204,255,1) 97%, rgba(194,195,248,1) 100%);
 }
@@ -52,7 +53,11 @@
     margin-top: 20px;
     width: 45%;
 }
-
+@media (max-width: 768px) {
+    .beach-description {
+      width: 100%;
+    }
+  }
 .hr-dimension {
     color: rgb(45, 44, 44);
     width: 80%;
@@ -67,8 +72,7 @@
     max-width: 600px;
     max-height: 500px;
     height: 500px;
-    background: rgb(240,235,171);
-    background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 7%, rgba(243,201,255,1) 38%, rgba(247,223,252,1) 82%, rgba(204,204,255,1) 97%, rgba(194,195,248,1) 100%);
+   background-color: rgba(255, 255, 255, 0.227);
 }
 
 .carousel-beach:hover {
@@ -167,9 +171,7 @@
 
 .btn-community:hover,
 .btn-share:hover {
-    background: rgb(240,235,171);
-    background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 7%, rgba(243,201,255,1) 38%, rgba(247,223,252,1) 82%, rgba(204,204,255,1) 97%, rgba(194,195,248,1) 100%);
-    color: black;
+    background-color: #292828;
 }
 
 .loading-spinner-container {
@@ -185,6 +187,10 @@
     border: 0.25em solid currentColor;
     border-right-color: transparent;
     animation: spinner-border 0.75s linear infinite;
+}
+.hr-beach{
+    color: black;
+    width: 85%;
 }
 
 @keyframes spinner-border {

@@ -12,8 +12,8 @@ const MiddleCarousel = () => {
     return (
         <>
             <div className='carousel-container-middle'>
-                <em className='title-carousel mb-3'>~ Fatti accompagnare in un esperienza magica ~</em>
-                <em className='intro'>Benvenuti alla nostra pagina dedicata alle prenotazioni per mete surfistiche indimenticabili! <br /> Se siete alla ricerca dell'onda perfetta e di un'avventura unica sull'acqua, siete nel posto giusto. <br />La nostra piattaforma vi guiderà passo dopo passo nell'emozionante processo di prenotazione di esperienze di surf straordinarie. </em>
+                <p className='title-carousel mb-3'>~ Fatti accompagnare in un esperienza magica ~</p>
+                <p className='intro'>Benvenuti alla nostra pagina dedicata alle prenotazioni per mete surfistiche indimenticabili! <br /> Se siete alla ricerca dell'onda perfetta e di un'avventura unica sull'acqua, siete nel posto giusto. <br />La nostra piattaforma vi guiderà passo dopo passo nell'emozionante processo di prenotazione di esperienze di surf straordinarie. </p>
                 <hr className='color-light' />
                 <Carousel className='middle-carousel'>
                     <Carousel.Item>
@@ -27,7 +27,7 @@ const MiddleCarousel = () => {
                         <img className='carousel-img' src={Surfimmage3} alt="First slide" />
                         <Carousel.Caption>
                             <h3>Scegli chi ti guiderà</h3>
-                            <em>Trova la scuola che più fa al caso tuo</em>
+                            <p>Trova la scuola che più fa al caso tuo</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item className='carousel-item carousel-slide'>

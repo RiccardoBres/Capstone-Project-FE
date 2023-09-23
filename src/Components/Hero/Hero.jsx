@@ -34,9 +34,9 @@ const Hero = () => {
             <Container fluid>
                 <Row className='d-flex'>
                     <Col md={6} className={`container-intro ${showIntro ? 'visible' : ''}`}>
-                        <em className='title-hero'>
+                        <p className='title-hero'>
                             Trova la tua meta
-                        </em>
+                        </p>
                         <br />
                         <p className='intro-video'>Le migliori mete Surfistiche a portata di un click.
                             Programma la tua vacanza ideale e scopri i servizi più adatti a te! <br />

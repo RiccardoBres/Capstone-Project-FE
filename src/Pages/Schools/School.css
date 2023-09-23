@@ -123,6 +123,13 @@
   background: transparent;
   text-align: center;
   color: rgb(101, 101, 101);
+  transition: transform 0.2s ease-in-out; 
+  margin: 15px
+}
+.school-info-details:hover{
+  transform: scale(1.02); 
+  background-color: rgba(255, 255, 255, 0.295);
+  color: black;
 }
 .school-info-details ul {
   list-style-type: none; 
@@ -133,7 +140,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 140vh;
+  height: auto;
 }
 .icon-details-school{
   margin-right: 2px;
@@ -144,9 +151,13 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
   transition: transform 0.2s ease-in-out; 
   display: flex;
+  margin: 50px;
 }
-
-
 .card-school-details:hover {
   transform: scale(1.02); 
+}
+.title-school-details{
+  color: white;
+  text-align: center;
+  padding-top: 10rem;
 }

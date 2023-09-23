@@ -1,0 +1,195 @@
+/* Beach.css */
+
+.beach-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    padding-bottom: 85px
+}
+
+.container-Logo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 25px
+}
+
+.logo {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+    text-align: center;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.beach-title {
+    font-size: 22px;
+    color: rgb(14, 12, 12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-beach {
+    font-size: 18px;
+    color: rgb(30, 28, 28);
+}
+
+.beach-description {
+    margin-top: 20px;
+    width: 45%;
+}
+
+.hr-dimension {
+    color: rgb(45, 44, 44);
+    width: 80%;
+}
+
+.beach-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 600px;
+    max-height: 500px;
+    height: 500px;
+    background-color: rgba(244, 239, 239, 0.993);
+    border: 0.5px solid rgb(214, 208, 208);
+
+
+}
+
+.carousel-beach:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #fbefef36;
+
+}
+
+.beach-card__image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.footer-beach-card {
+    color: rgb(26, 26, 26);
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.avatar {
+    height: 90px;
+    width: 100px !important;
+    border-radius: 100%;
+}
+
+.user-name {
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 50px;
+    color: rgb(23, 23, 23);
+    text-decoration: underline;
+
+}
+
+.carousel-beach {
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    height: 500px;
+
+}
+
+.beach-card__content {
+    padding: 16px;
+}
+
+.beach-card__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: rgb(27, 26, 26);
+}
+
+.beach-card__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 10px;
+}
+
+.beach-card__level,
+.beach-card__type {
+    font-size: 1rem;
+    color: #292828;
+}
+
+.beach-card__comment {
+    margin-bottom: 15px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.btn-community,
+.btn-share {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-community:hover,
+.btn-share:hover {
+    background: #FBD3E9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #BB377D, #FBD3E9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #BB377D, #FBD3E9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+.loading-spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border: 0.25em solid currentColor;
+    border-right-color: transparent;
+    animation: spinner-border 0.75s linear infinite;
+}
+
+@keyframes spinner-border {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -170,6 +170,10 @@ body {
 
 .text-container {
     padding-bottom: 10rem;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .card-content {
@@ -256,6 +260,9 @@ body {
 
 .intro-school {
     font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-control-prev,

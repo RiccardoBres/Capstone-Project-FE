@@ -28,6 +28,8 @@ body {
   background-color: rgba(255, 255, 255, 0.319);
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+
 }
 
 .beach-container-posts {
@@ -46,6 +48,21 @@ body {
  background-color: rgba(255, 255, 255, 0.319);
 }
 
+
+.light-section::before {
+  content: "";
+  background-image: url(https://img.freepik.com/free-photo/surfer-ocean-with-breathtaking-sunset-sky-background_181624-6844.jpg?size=626&ext=jpg&ga=GA1.1.141789769.1682703468&semt=ais);
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5; /* Imposta l'opacità desiderata */
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1; /* Posiziona l'elemento sotto il contenuto principale */
+}
+
 .search-title {
   color: #2F70AF;
 }
@@ -53,6 +70,9 @@ body {
 .decoration-none {
   text-decoration: none;
   color: white;
+}
+.decoration-none:hover{
+  color: black;
 }
 
 .beach-container-posts::-webkit-scrollbar {
@@ -110,9 +130,6 @@ body {
   color: #151515;
 }
 
-.decoration-none button:hover {
-  color: black;
-}
 
 .button-details {
   background-color: rgb(16, 16, 16);
@@ -125,20 +142,20 @@ body {
   background-color: rgb(16, 16, 16);
   color: rgb(249, 246, 246);
   cursor: pointer;
-  width: 50%;
+  width: 45%;
   margin-top: 30px;
 }
 
 .button-details-card:hover {
-  background: rgb(240, 235, 171);
-  background: linear-gradient(154deg, rgba(240, 235, 171, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 7%, rgba(243, 201, 255, 1) 38%, rgba(247, 223, 252, 1) 82%, rgba(204, 204, 255, 1) 97%, rgba(194, 195, 248, 1) 100%);
+  background: rgba(250, 249, 245, 0.085);
   color: black !important;
 }
 
 .buttons-school-reviews {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  margin: 10px;
 }
 
 /* Contenitore dei dettagli dell'autore */

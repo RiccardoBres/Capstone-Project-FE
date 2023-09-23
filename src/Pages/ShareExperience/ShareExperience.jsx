@@ -140,7 +140,7 @@ const ShareExperience = () => {
                         </div>
                     </Col>
                 </Row>
-                <Row className='row-publication'>
+                <Row className='opaque-background'>
                     <Col sm={4} md={4} lg={8}>
                         <div className='form-container'>
                             <Form 

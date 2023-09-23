@@ -79,11 +79,11 @@ const CarouselComponent = () => {
                 </Col>
             </Row>
             <Row>
-                <Col lg={12} md={6} xs={12}>
+                <Col lg={12} md={6} xs={12} className='d-flex justify-content-center'>
                     <div className='text-container'>
                         <p className='intro-school my-3'>
-                            Se siete appassionati di onde e avete sempre sognato di cavalcare il mare, siete nel posto giusto. La nostra piattaforma vi offre un elenco accurato e dettagliato delle scuole di surf più autentiche e competenti nella vostra area. <br />
-                            Che siate principianti entusiasti o surfisti esperti in cerca di nuove sfide, il nostro servizio vi connetterà alle scuole che offrono lezioni coinvolgenti, istruttori esperti e un ambiente accogliente per farvi vivere l'emozione del surf in modo sicuro. Preparatevi a tuffarvi in un'avventura mozzafiato sull'oceano, imparando le tecniche fondamentali o perfezionando il vostro stile con le migliori scuole di surf a portata di clic.
+                            Se siete appassionati di onde e avete sempre sognato di cavalcare il mare, siete nel posto giusto. <br /> La nostra piattaforma vi offre un elenco accurato e dettagliato delle scuole di surf più autentiche e competenti nella vostra area. <br />
+                            Che siate principianti entusiasti o surfisti esperti in cerca di nuove sfide, il nostro servizio vi connetterà alle scuole che offrono lezioni coinvolgenti e istruttori esperti.<br />  Preparatevi a tuffarvi in un'avventura mozzafiato sull'oceano, imparando le tecniche fondamentali o perfezionando il vostro stile con le migliori scuole di surf a portata di clic.
                         </p>
                     </div>
                 </Col>

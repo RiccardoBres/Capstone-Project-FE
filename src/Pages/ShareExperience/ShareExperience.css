@@ -14,7 +14,7 @@
   justify-content: center;
   border-radius: 8px;
   padding: 25px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.215);
 }
 
 .beach-card-container-bcc::-webkit-scrollbar {
@@ -24,7 +24,7 @@
 .profile-row {
   width: 90%;
   color: rgb(97, 96, 96);
-  background-color: rgba(248, 241, 241, 0.885);
+  background-color: rgb(248 241 241 / 21%);
   background-size: cover;
   background-position: center;
   background-repeat: repeat;
@@ -48,7 +48,7 @@
   align-items: center;
   justify-content: center;
   z-index: 99;
-  background-color: rgba(255, 255, 255, 0.568);
+  background-color: rgba(255, 255, 255, 0.164);
   box-shadow: 0 4px 4px 6px rgba(0, 0, 0, 0.1); 
 
 }
@@ -56,8 +56,7 @@
 .beach-card-bcc {
   width: 80%;
 }
-
-.row-publication {
+.opaque-background {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,10 +66,23 @@
   width: 100%;
   box-shadow: 0px 15px 25px 10px rgba(0, 0, 0, 0.5);
   margin-bottom: 5rem;
-  background-image: url(https://img.freepik.com/free-photo/silhouette-one-person-jogging-sunset-generated-by-ai_188544-30990.jpg?w=1380&t=st=1695327568~exp=1695328168~hmac=a654135405bccf86cf4d626f0019e535e1041b284bdbeac887207d0eaf94788f);
-  background-position: center;
-
+  position: relative; /* Per creare un contesto relativo */
 }
+.opaque-background::before {
+  content: "";
+  background-image: url(https://img.freepik.com/free-photo/surfer-ocean-with-breathtaking-sunset-sky-background_181624-6844.jpg?size=626&ext=jpg&ga=GA1.1.141789769.1682703468&semt=ais);
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5; /* Imposta l'opacità desiderata */
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1; /* Posiziona l'elemento sotto il contenuto principale */
+}
+
+
 
 .container-image {
   display: flex;
@@ -109,7 +121,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  color: white;
+  color: rgb(8, 8, 8);
 }
 
 .share-experience-form h2 {

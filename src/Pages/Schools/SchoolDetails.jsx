@@ -25,17 +25,8 @@ const SchoolDetails = () => {
     <CustomNavbar/>
     <Container className="school-details-container">
         {school ? (
-          <Row>
+          <Row className='row-school-details'>
             <h1 className='title-school-details'>{school.name}</h1>
-            <Col lg={6} md={6} xs={12} >
-              <Card className="card-school-details">
-                <Card.Img variant="top" src={school.image} />
-                <Card.Body>
-                  <Card.Title>{school.name}</Card.Title>
-                  <Card.Text>{school.location}</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
             <Col lg={6} md={6} xs={12} className='d-flex align-items-center justify-content-center'>
               <div className="school-info-details">
                 <h3>Descrizione</h3>
@@ -52,6 +43,15 @@ const SchoolDetails = () => {
                   </li>
                 </ul>
               </div>
+            </Col>
+            <Col lg={6} md={6} xs={12} >
+              <Card className="card-school-details">
+                <Card.Img variant="top" src={school.image} />
+                <Card.Body>
+                  <Card.Title>{school.name}</Card.Title>
+                  <Card.Text>{school.location}</Card.Text>
+                </Card.Body>
+              </Card>
             </Col>
           </Row>
         ) : (

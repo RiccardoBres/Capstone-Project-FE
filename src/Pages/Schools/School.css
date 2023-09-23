@@ -116,13 +116,12 @@
 /* SCHOOL DETAILS /////////////////// */
 
 .school-info-details {
-  background-color: #f7f7f7;
+  background-color: #f7f7f765;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  background: transparent;
   text-align: center;
-  color: rgb(101, 101, 101);
+  color: rgb(49, 48, 48);
   transition: transform 0.2s ease-in-out; 
   margin: 15px
 }
@@ -140,7 +139,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: auto;
+  height: 160vh;
+}
+.row-school-details{
+  background-color: rgba(255, 255, 255, 0.311);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+.row-school-details::before {
+  content: "";
+  background-image: url(https://img.freepik.com/free-photo/surfer-ocean-with-breathtaking-sunset-sky-background_181624-6844.jpg?size=626&ext=jpg&ga=GA1.1.141789769.1682703468&semt=ais);
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5;
+  position: absolute;
+  border-radius: 15px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1; 
 }
 .icon-details-school{
   margin-right: 2px;
@@ -159,5 +181,5 @@
 .title-school-details{
   color: white;
   text-align: center;
-  padding-top: 10rem;
+  padding-top: 1rem;
 }

@@ -1,11 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-<<<<<<< HEAD
-
-const initialState = {
-    schools: [],
-    isLoading : false,
-    error: null,
-=======
 import axios from 'axios';
 
 const initialState = {
@@ -14,16 +7,11 @@ const initialState = {
     error: null,
     schoolsByLocation: [],
     schoolDetails:[],
->>>>>>> CSS_IMPLEMENTATION
 }
 
 export const getSchools = createAsyncThunk(
     "schools/getSchools",
-<<<<<<< HEAD
-    async ()=>{
-=======
     async () => {
->>>>>>> CSS_IMPLEMENTATION
         try {
             const data = await fetch("http://localhost:9090/school");
             const response = await data.json();
@@ -34,8 +22,6 @@ export const getSchools = createAsyncThunk(
         }
     }
 )
-<<<<<<< HEAD
-=======
 export const getSchoolsByLocation = createAsyncThunk(
     'schools/getSchoolsByLocation',
     async (location) => {
@@ -92,26 +78,10 @@ export const createSchool = createAsyncThunk(
         }
     }
 );
->>>>>>> CSS_IMPLEMENTATION
 
 const schoolSlice = createSlice({
     name: 'schoolState',
     initialState,
-<<<<<<< HEAD
-    extraReducers: (builder)=>{
-        builder
-        .addCase(getSchools.pending, (state)=>{
-            state.isLoading = true;
-        })
-        .addCase(getSchools.fulfilled, (state, action)=>{
-            state.isLoading = false;
-            state.schools = action.payload.schools;
-        })
-        .addCase(getSchools.rejected, (state)=>{
-            state.isLoading = false;
-            state.error = "Not possible find schools"
-        })
-=======
     extraReducers: (builder) => {
         builder
             .addCase(getSchools.pending, (state) => {
@@ -144,16 +114,12 @@ const schoolSlice = createSlice({
                 state.isLoading = false;
                 state.schoolDetails = action.payload
             })
->>>>>>> CSS_IMPLEMENTATION
     }
 })
 
 export const allSchools = (state) => state.schoolState.schools;
-<<<<<<< HEAD
-=======
 export const schoolsByLocation = (state) => state.schoolState.schoolsByLocation;
 export const schoolDetails = (state) => state.schoolState.schoolDetails;
->>>>>>> CSS_IMPLEMENTATION
 export const isLoading = (state) => state.schoolState.isLoading;
 export const schoolsError = (state) => state.schoolState.error;
 

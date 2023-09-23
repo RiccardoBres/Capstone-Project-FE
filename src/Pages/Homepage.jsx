@@ -14,14 +14,9 @@ const Homepage = () => {
             <CustomNavbar/>
             <Hero />
             <HeroBeach/>
-<<<<<<< HEAD
-            <Schools/>
-            <MiddleCarousel/> 
-=======
             <AccessRegistration/>
             <MiddleCarousel/> 
             <Schools/>
->>>>>>> CSS_IMPLEMENTATION
             <Footer/>
         </>
     )

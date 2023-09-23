@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSchoolsById, schoolDetails } from '../../States/SchoolState';
@@ -22,15 +22,15 @@ const SchoolDetails = () => {
   }, [dispatch, id]);
   return (
     <>
-    <CustomNavbar/>
-    <Container className="school-details-container">
+      <CustomNavbar />
+      <Container className="school-details-container">
         {school ? (
           <Row className='row-school-details'>
             <h1 className='title-school-details'>{school.name}</h1>
             <Col lg={6} md={6} xs={12} className='d-flex align-items-center justify-content-center'>
               <div className="school-info-details">
                 <h3>Descrizione</h3>
-                {school.description? <p>{school.description}</p>: <p>nessuna descrizione disponibile</p>}
+                {school.description ? <p>{school.description}</p> : <p>nessuna descrizione disponibile</p>}
                 <h3>Contatti</h3>
                 <ul className='p-1'>
                   <li className='py-2'>
@@ -58,7 +58,7 @@ const SchoolDetails = () => {
           <p>Caricamento in corso...</p>
         )}
       </Container>
-    <Footer/>
+      <Footer />
     </>
   );
 };

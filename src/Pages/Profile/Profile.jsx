@@ -2,19 +2,12 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import CustomNavbar from '../../Components/NavBar/CustomNavbar';
-<<<<<<< HEAD
-import { getUserById, userById, isUserLoading, userError } from '../../States/UserState';
-=======
 import { getUserById, isUserLoading, userError } from '../../States/UserState';
->>>>>>> CSS_IMPLEMENTATION
 import { FaEnvelope, FaBirthdayCake } from 'react-icons/fa';
 import Footer from '../../Components/Footer/Footer'
 import './Profile.css';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-<<<<<<< HEAD
-=======
 import AccessRegistration from "../../Components/VolatileComponents/AccessRegistration"
->>>>>>> CSS_IMPLEMENTATION
 
 
 const Profile = () => {
@@ -38,18 +31,11 @@ const Profile = () => {
     return (
         <>
             <CustomNavbar />
-<<<<<<< HEAD
-            <Container fluid className='container-profile'>
-                <Row className='custom-gutter'>
-                    <Col sm={12} md={8} lg={9} className='custom-width'>
-                        <div className="main-content">
-=======
             <AccessRegistration/>
             <Container fluid className='container-profile'>
                 <Row className='first-row'>
                     <Col sm={12} md={8} lg={10}>
                         <div>
->>>>>>> CSS_IMPLEMENTATION
                             {isLoading ? (
                                 <p>Caricamento in corso...</p>
                             ) : error ? (
@@ -58,14 +44,10 @@ const Profile = () => {
                                 <div className='container-intro-image'>
                                     <div className='image-name-container'>
                                         <img className="avatar-profile-page" src={userDetails.payload.userById.avatar} alt="image-profile" />
-<<<<<<< HEAD
-                                        <h3 className='profile-name'>{userDetails.payload.userById.name}{userDetails.payload.userById.surname}</h3>
-=======
                                         <h3
                                             className='profile-name'>
                                             {userDetails.payload.userById.name}{userDetails.payload.userById.surname}
                                         </h3>
->>>>>>> CSS_IMPLEMENTATION
                                     </div>
                                     <div className='email-container'>
                                         <FaEnvelope className='icon-email' />
@@ -75,22 +57,14 @@ const Profile = () => {
                                         <FaBirthdayCake className='icon-birthday' />
                                         <p className='mb-0'>{userDetails.payload.userById.birthday}</p>
                                     </div>
-<<<<<<< HEAD
-=======
                                     <em className='text-pubblicazioni'>Pubblicazioni:</em>
->>>>>>> CSS_IMPLEMENTATION
                                 </div>
                             ) : null}
                         </div>
                     </Col>
-<<<<<<< HEAD
-                    <Col sm={12} md={4} lg={3}>
-                        <em className='text-pubblicazioni'>Pubblicazioni:</em>
-=======
                 </Row>
                 <Row className='main-row'>
                     <Col sm={4} md={4} lg={12}>
->>>>>>> CSS_IMPLEMENTATION
                         <div className="beach-card-container">
                             <div className='beach-cards'>
                                 {userDetails && userDetails.payload.userById.beach.length > 0 ? (

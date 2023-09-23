@@ -130,36 +130,3 @@ const School = () => {
 
 export default School;
 
-
-/* const dispatch = useDispatch();
-  const schools = useSelector(allSchools) || [];
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredSchools, setFilteredSchools] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 8;
-  const { search } = useLocation();
-  const params = new URLSearchParams(search);
-  const locationParam = params.get('location'); // Ottieni la località dalla URL
-
-  useEffect(() => {
-    if (locationParam) {
-      dispatch(getSchoolsByLocation(locationParam));
-    } else {
-      setFilteredSchools([]);
-    }
-  }, [dispatch, locationParam]);
-
-  useEffect(() => {
-    const filtered = schools.filter((school) => {
-      const query = searchQuery.toLowerCase();
-      return school.location.toLowerCase().includes(query);
-    });
-
-    setFilteredSchools(filtered);
-    setCurrentPage(1);
-  }, [searchQuery, schools]);
-
-  const totalPages = Math.ceil(filteredSchools.length / pageSize);
-  const startIndex = (currentPage - 1) * pageSize;
-  const endIndex = startIndex + pageSize;
-  const schoolsToShow = filteredSchools.slice(startIndex, endIndex); */

@@ -3,16 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container, Form, Button } from 'react-bootstrap';
 import CustomNavbar from '../Components/NavBar/CustomNavbar'
 import Footer from '../Components/Footer/Footer';
-<<<<<<< HEAD
-import { createUser} from '../States/UserState';
-import ModalLogin from '../Components/NavBar/ModalLogin';
-import { useNavigate } from 'react-router-dom';
-=======
 import { createUser } from '../States/UserState';
 import ModalLogin from '../Components/NavBar/ModalLogin';
 import { useNavigate } from 'react-router-dom';
 import { createSchool } from '../States/SchoolState';
->>>>>>> CSS_IMPLEMENTATION
 import './RegistrationPage.css'
 
 
@@ -21,14 +15,6 @@ const RegistrationPage = () => {
     const navigate = useNavigate();
     const [showModalLogin, setShowModalLogin] = useState(false);
     const [validated, setValidated] = useState(false);
-<<<<<<< HEAD
-    const [formData, setFormData] = useState('');
-
-
-    const dispatch = useDispatch();
-
-    const handleSubmit = async (event) => {
-=======
     const [formData, setFormData] = useState({});
     const [formDataSchool, setFormDataSchool] = useState({});
     const [school, setSchool] = useState(false);
@@ -47,7 +33,6 @@ const RegistrationPage = () => {
 
 
     const handleSubmitPerson = async (event) => {
->>>>>>> CSS_IMPLEMENTATION
         event.preventDefault();
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
@@ -55,19 +40,6 @@ const RegistrationPage = () => {
         } else {
             console.log(formData);
             try {
-<<<<<<< HEAD
-                await dispatch(createUser(formData));
-                cleaner();
-                navigate('/');
-            } catch (error) {
-                console.log(error);
-            }
-            setValidated(true);   
-        }
-    };
-   
-    const cleaner =()=> {
-=======
                 dispatch(createUser(formData));
                 cleanerPerson();
                 navigate('/');
@@ -97,7 +69,6 @@ const RegistrationPage = () => {
     };
 
     const cleanerPerson = () => {
->>>>>>> CSS_IMPLEMENTATION
         setFormData({
             name: "",
             surname: "",
@@ -108,12 +79,6 @@ const RegistrationPage = () => {
             type: ""
         });
     }
-<<<<<<< HEAD
-    
-    
-
-
-=======
     const cleanerSchool = () => {
         setFormDataSchool({
             name: "",
@@ -129,18 +94,10 @@ const RegistrationPage = () => {
     if (registrationSuccess) {
         navigate("/");
     }
->>>>>>> CSS_IMPLEMENTATION
     return (
         <>
             <CustomNavbar />
             <Container className="registration-container">
-<<<<<<< HEAD
-                <p className='title-registration'>Registrati per ottenere accesso ai nostri servizi!</p>
-                <Form
-                    className="registration-form"
-                    validated={validated}
-                    onSubmit={handleSubmit}
-=======
                 <div className='intro-registration'>
                     <p className='title-registration'>Registrati per ottenere accesso ai nostri servizi!</p>
                     <p>Registrandoti al nostro sito e fornendo tutte le informazioni richieste, inclusi i dettagli non obbligatori, ci permetti di offrirti un'esperienza migliore e altamente personalizzata. </p>
@@ -161,7 +118,6 @@ const RegistrationPage = () => {
                     className="registration-form"
                     validated={validated}
                     onSubmit={handleSubmitPerson}
->>>>>>> CSS_IMPLEMENTATION
                     encType="multipart/form-data">
                     <Form.Group controlId="name">
                         <Form.Label>Nome</Form.Label>
@@ -252,9 +208,6 @@ const RegistrationPage = () => {
                     <Button
                         variant="secondary"
                         type="submit">Registrati</Button>
-<<<<<<< HEAD
-                </Form>
-=======
                 </Form>}
                 {school && <Form
                     className="registration-form"
@@ -351,7 +304,6 @@ const RegistrationPage = () => {
                         variant="secondary"
                         type="submit">Registrati</Button>
                 </Form>}
->>>>>>> CSS_IMPLEMENTATION
             </Container>
             <ModalLogin showModal={showModalLogin} setShowModal={setShowModalLogin} />
             <Footer />

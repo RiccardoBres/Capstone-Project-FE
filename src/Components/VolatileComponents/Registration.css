@@ -1,12 +1,7 @@
 .component-fixed {
     position: fixed;
-<<<<<<< HEAD
-    top: 90px;
-    left: 90%;
-=======
     top: 120px;
     left: 95%;
->>>>>>> CSS_IMPLEMENTATION
     transform: translateX(-50%);
     background-color: transparent;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
@@ -21,28 +16,6 @@
 .component-fixed:hover {
     background-color: rgba(255, 255, 255, 0.093);
 }
-<<<<<<< HEAD
-/* .component-fixed-2 {
-    position: fixed;
-    top: 110px;
-    left: 66%;
-    transform: translateX(-50%);
-    background-color: transparent;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    z-index: 999;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.component-fixed-2:hover {
-    background-color: rgba(255, 255, 255, 0.093);
-}
- */
-
-=======
->>>>>>> CSS_IMPLEMENTATION
 
 .close-button {
     margin-top: 10px;
@@ -83,14 +56,6 @@
     margin-top: 20px;
     gap: 0.5rem;
     cursor: pointer;
-<<<<<<< HEAD
-}
-
-.go-to-page-container a {
-    text-decoration: none !important;
-    color: white;
-}
-=======
     color: black;
 }
 
@@ -111,7 +76,6 @@
     margin-bottom: 1rem;
 }
 
->>>>>>> CSS_IMPLEMENTATION
 
 .registration-container {
     display: flex;

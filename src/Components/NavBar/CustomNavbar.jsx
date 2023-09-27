@@ -69,7 +69,7 @@ const CustomNavbar = () => {
                         <Nav>
                             {session && session.decodedSession && (
                                 <NavDropdown
-                                    title={<em className='user-name-nav'>{session.decodedSession.name}{session.decodedSession.surname}</em>}
+                                    title={<em className='user-name-nav'>{session.decodedSession.name} {session.decodedSession.surname}</em>}
                                     id="account-dropdown"
                                     show={dropdownOpen}
                                     onToggle={(isOpen) => setDropdownOpen(isOpen)}
@@ -79,9 +79,6 @@ const CustomNavbar = () => {
                                         onClick={() => session.decodedSession && handleShareExperiencePage(session.decodedSession.id)}
                                         className='drop-title'>
                                             <FontAwesomeIcon icon={faUserCircle} className="logout-icon" /> Vai al tuo profilo
-                                        </p>
-                                        <p className='drop-title'>
-                                            <FontAwesomeIcon icon={faBookmark} className="logout-icon" /> Post salvati
                                         </p>
                                         <p
                                             className='drop-title'

@@ -43,7 +43,6 @@ export const createUser = createAsyncThunk(
         form.append("password", user.password);
         form.append("birthday", user.birthday);
         form.append("avatar", user.avatar);
-        form.append("type", user.type);
         console.log(...form);
         
         try {
@@ -71,12 +70,10 @@ const UserSlice = createSlice({
         removeSavedBeach: (state, action) => {
             console.log('action.payload:', action.payload);
         
-            // Verifica se l'ID è presente nell'array prima della rimozione
             const beachIdToRemove = action.payload;
             const indexToRemove = state.savedBeach.indexOf(beachIdToRemove);
         
             if (indexToRemove !== -1) {
-                // Rimuovi l'ID dalla lista
                 state.savedBeach.splice(indexToRemove, 1);
             }
         

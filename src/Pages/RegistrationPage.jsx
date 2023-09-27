@@ -98,212 +98,202 @@ const RegistrationPage = () => {
         <>
             <CustomNavbar />
             <Container className="registration-container">
-                <div className='intro-registration'>
-                    <p className='title-registration'>Registrati per ottenere accesso ai nostri servizi!</p>
-                    <p>Registrandoti al nostro sito e fornendo tutte le informazioni richieste, inclusi i dettagli non obbligatori, ci permetti di offrirti un'esperienza migliore e altamente personalizzata. </p>
-                    <div>
-                        <label>
-                            <input type="radio" name="registrationType" value="persona" onClick={handleFormPerson} />
-                            Iscriviti come Persona
-                        </label>
+                <div className="container-registration-page">
+                    <div className='intro-registration'>
+                        <p className='title-registration'>Registrati per ottenere accesso ai nostri servizi!</p>
+                        <p>Registrandoti al nostro sito e fornendo tutte le informazioni richieste, inclusi i dettagli non obbligatori, ci permetti di offrirti un'esperienza migliore e altamente personalizzata. </p>
+                        <div>
+                            <label>
+                                <input type="radio" name="registrationType" value="persona" onClick={handleFormPerson} />
+                                Iscriviti come Persona
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="radio" name="registrationType" value="scuola" onClick={handleFormSchool} />
+                                Iscriviti come Scuola
+                            </label>
+                        </div>
                     </div>
-                    <div>
-                        <label>
-                            <input type="radio" name="registrationType" value="scuola" onClick={handleFormSchool} />
-                            Iscriviti come Scuola
-                        </label>
-                    </div>
+                    {person && <Form
+                        className="registration-form"
+                        validated={validated}
+                        onSubmit={handleSubmitPerson}
+                        encType="multipart/form-data">
+                        <Form.Group controlId="name">
+                            <Form.Label>Nome</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        name: e.target.value
+                                    })
+                                }
+                                type="text"
+                                name="name"
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="surname">
+                            <Form.Label>Cognome</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        surname: e.target.value
+                                    })}
+                                type="text"
+                                name="surname" />
+                        </Form.Group>
+                        <Form.Group controlId="email">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        email: e.target.value
+                                    })}
+                                type="email"
+                                name="email" />
+                        </Form.Group>
+                        <Form.Group controlId="Password">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        password: e.target.value
+                                    })}
+                                type="Password"
+                                name="password" />
+                        </Form.Group>
+                        <Form.Group controlId="avatar">
+                            <Form.Label>Foto Profilo</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        avatar: e.target.files[0]
+                                    })}
+                                type="file"
+                                name="avatar" />
+                        </Form.Group>
+                        <Form.Group controlId="birthday">
+                            <Form.Label>Data di nascita</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        birthday: e.target.value
+                                    })}
+                                type="text"
+                                name="birthday" />
+                        </Form.Group>
+                        <Button
+                            variant="secondary"
+                            type="submit">Registrati</Button>
+                    </Form>}
+                    {school && <Form
+                        className="registration-form"
+                        validated={validated}
+                        onSubmit={handleSubmitSchool}
+                        encType="multipart/form-data">
+                        <Form.Group controlId="name">
+                            <Form.Label>Nome scuola</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormDataSchool({
+                                        ...formDataSchool,
+                                        name: e.target.value
+                                    })
+                                }
+                                type="text"
+                                name="name"
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="address">
+                            <Form.Label>Indirizzo</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormDataSchool({
+                                        ...formDataSchool,
+                                        address: e.target.value
+                                    })}
+                                type="text"
+                                name="address" />
+                        </Form.Group>
+                        <Form.Group controlId="location">
+                            <Form.Label>Città</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormDataSchool({
+                                        ...formDataSchool,
+                                        location: e.target.value
+                                    })}
+                                type="text"
+                                name="location" />
+                        </Form.Group>
+                        <Form.Group controlId="description">
+                            <Form.Label>Descrizione</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormDataSchool({
+                                        ...formDataSchool,
+                                        description: e.target.value
+                                    })}
+                                type="text"
+                                name="description" />
+                        </Form.Group>
+                        <Form.Group controlId="image">
+                            <Form.Label>Foto</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormDataSchool({
+                                        ...formDataSchool,
+                                        image: e.target.files[0]
+                                    })}
+                                type="file"
+                                name="image" />
+                        </Form.Group>
+                        <Form.Group controlId="email">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormDataSchool({
+                                        ...formDataSchool,
+                                        email: e.target.value
+                                    })}
+                                type="email"
+                                name="email" />
+                        </Form.Group>
+                        <Form.Group controlId="password">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control
+                                required
+                                onChange={(e) =>
+                                    setFormDataSchool({
+                                        ...formDataSchool,
+                                        password: e.target.value
+                                    })}
+                                type="password"
+                                name="password" />
+                        </Form.Group>
+                        <Button
+                            variant="secondary"
+                            type="submit">Registrati</Button>
+                    </Form>}
                 </div>
-                {person && <Form
-                    className="registration-form"
-                    validated={validated}
-                    onSubmit={handleSubmitPerson}
-                    encType="multipart/form-data">
-                    <Form.Group controlId="name">
-                        <Form.Label>Nome</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    name: e.target.value
-                                })
-                            }
-                            type="text"
-                            name="name"
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="surname">
-                        <Form.Label>Cognome</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    surname: e.target.value
-                                })}
-                            type="text"
-                            name="surname" />
-                    </Form.Group>
-                    <Form.Group controlId="email">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    email: e.target.value
-                                })}
-                            type="email"
-                            name="email" />
-                    </Form.Group>
-                    <Form.Group controlId="Password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    password: e.target.value
-                                })}
-                            type="Password"
-                            name="password" />
-                    </Form.Group>
-                    <Form.Group controlId="avatar">
-                        <Form.Label>Foto Profilo</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    avatar: e.target.files[0]
-                                })}
-                            type="file"
-                            name="avatar" />
-                    </Form.Group>
-                    <Form.Group controlId="birthday">
-                        <Form.Label>Data di nascita</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    birthday: e.target.value
-                                })}
-                            type="text"
-                            name="birthday" />
-                    </Form.Group>
-                    <Form.Group controlId="type">
-                        <Form.Label>Tipo</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    type: e.target.value
-                                })}
-                            type="text"
-                            name="type" />
-                    </Form.Group>
-                    <Button
-                        variant="secondary"
-                        type="submit">Registrati</Button>
-                </Form>}
-                {school && <Form
-                    className="registration-form"
-                    validated={validated}
-                    onSubmit={handleSubmitSchool}
-                    encType="multipart/form-data">
-                    <Form.Group controlId="name">
-                        <Form.Label>Nome scuola</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormDataSchool({
-                                    ...formDataSchool,
-                                    name: e.target.value
-                                })
-                            }
-                            type="text"
-                            name="name"
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="address">
-                        <Form.Label>Indirizzo</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormDataSchool({
-                                    ...formDataSchool,
-                                    address: e.target.value
-                                })}
-                            type="text"
-                            name="address" />
-                    </Form.Group>
-                    <Form.Group controlId="location">
-                        <Form.Label>Città</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormDataSchool({
-                                    ...formDataSchool,
-                                    location: e.target.value
-                                })}
-                            type="text"
-                            name="location" />
-                    </Form.Group>
-                    <Form.Group controlId="description">
-                        <Form.Label>Descrizione</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormDataSchool({
-                                    ...formDataSchool,
-                                    description: e.target.value
-                                })}
-                            type="text"
-                            name="description" />
-                    </Form.Group>
-                    <Form.Group controlId="image">
-                        <Form.Label>Foto</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormDataSchool({
-                                    ...formDataSchool,
-                                    image: e.target.files[0]
-                                })}
-                            type="file"
-                            name="image" />
-                    </Form.Group>
-                    <Form.Group controlId="email">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormDataSchool({
-                                    ...formDataSchool,
-                                    email: e.target.value
-                                })}
-                            type="email"
-                            name="email" />
-                    </Form.Group>
-                    <Form.Group controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            required
-                            onChange={(e) =>
-                                setFormDataSchool({
-                                    ...formDataSchool,
-                                    password: e.target.value
-                                })}
-                            type="password"
-                            name="password" />
-                    </Form.Group>
-                    <Button
-                        variant="secondary"
-                        type="submit">Registrati</Button>
-                </Form>}
             </Container>
             <ModalLogin showModal={showModalLogin} setShowModal={setShowModalLogin} />
             <Footer />

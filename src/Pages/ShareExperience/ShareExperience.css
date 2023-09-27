@@ -66,21 +66,29 @@
   width: 100%;
   box-shadow: 0px 15px 25px 10px rgba(0, 0, 0, 0.5);
   margin-bottom: 5rem;
-  position: relative; /* Per creare un contesto relativo */
+  position: relative; 
 }
 .opaque-background::before {
   content: "";
   background-image: url(https://img.freepik.com/free-photo/surfer-ocean-with-breathtaking-sunset-sky-background_181624-6844.jpg?size=626&ext=jpg&ga=GA1.1.141789769.1682703468&semt=ais);
   background-position: center;
   background-size: cover;
-  opacity: 0.5; /* Imposta l'opacità desiderata */
+  opacity: 0.5; 
   position: absolute;
+  border-radius: 15px;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: -1; /* Posiziona l'elemento sotto il contenuto principale */
+  z-index: -1; 
+  overflow-y: hidden!important;
 }
+@media (max-width: 995px) {
+  .opaque-background {
+      margin-bottom: 55rem; 
+  }
+}
+
 
 
 

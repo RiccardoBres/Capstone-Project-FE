@@ -15,11 +15,10 @@ export const getSchools = createAsyncThunk(
         try {
             const data = await fetch("http://localhost:9090/school");
             const response = await data.json();
-            const schools = response;
-            return schools
+            return response
         } catch (error) {
-            console.log(error)
-        }
+            console.error('Errore nella chiamata API:', error);
+            throw error;        }
     }
 )
 export const getSchoolsByLocation = createAsyncThunk(

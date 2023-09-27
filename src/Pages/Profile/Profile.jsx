@@ -46,7 +46,7 @@ const Profile = () => {
                                         <img className="avatar-profile-page" src={userDetails.payload.userById.avatar} alt="image-profile" />
                                         <h3
                                             className='profile-name'>
-                                            {userDetails.payload.userById.name}{userDetails.payload.userById.surname}
+                                            {userDetails.payload.userById.name} {userDetails.payload.userById.surname}
                                         </h3>
                                     </div>
                                     <div className='email-container'>
@@ -57,15 +57,15 @@ const Profile = () => {
                                         <FaBirthdayCake className='icon-birthday' />
                                         <p className='mb-0'>{userDetails.payload.userById.birthday}</p>
                                     </div>
-                                    <em className='text-pubblicazioni'>Pubblicazioni:</em>
                                 </div>
                             ) : null}
                         </div>
                     </Col>
                 </Row>
                 <Row className='main-row'>
-                    <Col sm={4} md={4} lg={12}>
+                    <Col sm={12} md={12} lg={12}>
                         <div className="beach-card-container">
+                        <h1 className='text-pubblicazioni'>Pubblicazioni</h1>
                             <div className='beach-cards'>
                                 {userDetails && userDetails.payload.userById.beach.length > 0 ? (
                                     userDetails.payload.userById.beach.map((beach) => (

@@ -16,6 +16,7 @@ const CarouselComponent = () => {
 
     useEffect(() => {
         dispatch(getSchools());
+        console.log(schools);
     }, []);
 
     const groupsOfThree = [];

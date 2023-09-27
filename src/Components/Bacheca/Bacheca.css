@@ -37,7 +37,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 5px;
   width: 100%;
   max-height: 120vh;
   overflow-y: auto;
@@ -54,13 +54,14 @@ body {
   background-image: url(https://img.freepik.com/free-photo/surfer-ocean-with-breathtaking-sunset-sky-background_181624-6844.jpg?size=626&ext=jpg&ga=GA1.1.141789769.1682703468&semt=ais);
   background-position: center;
   background-size: cover;
-  opacity: 0.5; /* Imposta l'opacità desiderata */
+  opacity: 0.5; 
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: -1; /* Posiziona l'elemento sotto il contenuto principale */
+  border-radius: 15px;
+  z-index: -1; 
 }
 
 .search-title {
@@ -353,19 +354,19 @@ body {
   z-index: 1;
   cursor: pointer;
   font-size: 24px;
-  color: #ccc; /* Colore predefinito per il cuore non selezionato */
+  color: #ccc; 
   cursor: pointer;
   margin-right: 5px;
-  transition: color 0.3s ease; /* Transizione per il cambio di colore */
+  transition: color 0.3s ease; 
 }
 
 .favorite-icon:hover {
-  color: #ff6b6b; /* Colore quando il cuore viene selezionato */
+  color: #ff6b6b; 
 }
 
 .favorite-icon-selected {
   font-size: 24px;
-  color: #ff6b6b; /* Colore quando la spiaggia è nei preferiti */
+  color: #ff6b6b; 
   cursor: pointer;
   margin-right: 5px;
   transition: color 0.3s ease;
@@ -377,7 +378,7 @@ body {
 }
 
 .favorite-icon-selected:hover {
-  color: #ccc; /* Colore quando il cuore viene deselezionato */
+  color: #ccc; 
 }
 
 

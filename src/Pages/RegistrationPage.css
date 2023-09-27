@@ -21,10 +21,18 @@ body {
     color: rgb(150, 148, 148);
     padding-top: 9rem;
 }
+.container-registration-page{
+    display: flex;
+    padding: 50px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.214);
+    box-shadow: 2px 4px 10px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
 
 .title-registration {
     font-size: 30px;
-    color: rgb(33, 32, 32);
+    color: rgb(89, 86, 86);
 }
 .intro-registration{
     display: flex;

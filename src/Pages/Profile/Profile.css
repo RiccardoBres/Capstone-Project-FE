@@ -1,47 +1,47 @@
+/* Reset dei margini e del box-sizing */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Stile di base del corpo della pagina */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: rgb(240,235,171);
-background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(170,170,255,1) 0%, rgba(243,201,255,1) 45%, rgba(247,223,252,1) 73%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%, rgba(194,195,248,1) 100%);
+    background: linear-gradient(154deg, rgba(240, 235, 171, 1) 0%, rgba(170, 170, 255, 1) 0%, rgba(243, 201, 255, 1) 45%, rgba(247, 223, 252, 1) 73%, rgba(255, 255, 255, 1) 95%, rgba(255, 255, 255, 1) 100%, rgba(194, 195, 248, 1) 100%);
 }
 
-
+/* Contenitore principale del profilo */
 .container-profile {
     width: 100%;
-    height: 155vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 3rem;
+    padding: 20px; /* Aggiunto spazio ai bordi */
 }
-
-.avatar-profile-page {
-    width: 140px !important;
-    height: 130px !important;
-    border-radius: 50% !important;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.3s ease;
-}
-
-.image-name-container {
+.first-row{
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 250px;
+}
+/* Stile dell'avatar del profilo */
+.avatar-profile-page {
+    width: 200px;
+    height: 190px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
 }
 
 .avatar-profile-page:hover {
     box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.5);
 }
 
+/* Contenitore delle informazioni principali */
 .container-intro-image {
     display: flex;
     justify-content: center;
@@ -49,94 +49,114 @@ background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(170,170,255,1) 
     align-items: center;
     margin-top: 50px;
     color: rgb(90, 89, 89);
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.249);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 8rem
 }
 
+/* Nome del profilo */
 .profile-name {
-    margin-top: 15px;
     margin-top: 30px;
     display: inline-block;
+    width: 145%;
+    text-align: center;
+    font-size: 40px;
 }
-
+.text-pubblicazioni{
+    color: rgb(69, 68, 68);
+}
+/* Contenitore dell'email */
 .email-container {
     display: flex;
     gap: 1rem;
     align-items: center;
-    margin-top: 30px;
 }
 
+/* Icona dell'email */
 .icon-email {
     font-size: 20px;
 }
 
+/* Icona del compleanno */
 .icon-birthday {
     font-size: 20px;
 }
-
-.main-content {
-    margin-left: 50px;
-}
-
-.birthday-container {
+.birthday-container{
+    padding: 10px;
     display: flex;
-    margin-top: 30px;
-    gap: 1rem;
+    gap: 0.7rem;
 }
 
-.first-row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
+/* Sezione delle carte delle spiagge */
 .main-row {
     width: 80%;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Consentiamo il wrapping delle carte */
+    gap: 20px; /* Aggiunto spazio tra le carte */
 }
 
-
-/* Stile per le card delle spiagge */
-
+/* Contenitore delle carte delle spiagge */
 .beach-card-container {
-    max-height: 400px;
+    background-color: rgba(255, 255, 255, 0.51);
+    border-radius: 15px;
     width: 100%;
-    overflow-x: hidden;
-    box-shadow: 2px 4px 10px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 15px 25px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5rem;
+    position: relative;
+    overflow-y: hidden !important;
+    padding: 50px;
+}
+
+/* Immagine di sfondo del contenitore delle carte delle spiagge */
+.beach-card-container::before {
+    content: "";
+    background-image: url(https://img.freepik.com/free-photo/surfer-ocean-with-breathtaking-sunset-sky-background_181624-6844.jpg?size=626&ext=jpg&ga=GA1.1.141789769.1682703468&semt=ais);
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    overflow-y: hidden !important;
+}
+
+/* Contenitore delle carte delle spiagge */
+.beach-cards {
+    width: 100%;
+    min-height: 30rem; /* Imposta un'altezza minima desiderata */
+    max-height: 65rem; /* Imposta un'altezza massima per l'effetto overflow */
+    overflow-x: auto;
+    overflow-y: auto !important;
+    box-shadow: 0 4px 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
     padding: 25px;
-    background: rgb(240,235,171);
-  background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(247,235,136,1) 12%, rgba(243,223,255,1) 26%, rgba(243,201,255,1) 51%, rgba(237,181,251,1) 67%, rgba(154,155,246,1) 88%, rgba(120,121,255,1) 97%);  
+    background-color: rgba(255, 255, 255, 0.215);
+    flex-direction: column;
 }
 
-.beach-card-container::-webkit-scrollbar {
+/* Nascondi le barre di scorrimento orizzontali */
+ .beach-cards::-webkit-scrollbar {
     display: none;
-}
+} 
 
-.beach-cards {
-    padding: 20px;
-    margin-top: 50px;
-    border-radius: 8px;
-    width: 40%;
-}
-
-.text-pubblicazioni {
-    font-size: 28px;
-    text-align: center !important;
-    margin-top: 30px;
-}
-
+/* Stile delle carte delle spiagge */
 .card {
-    margin-top: 120px;
-    background-color:transparent;
+    background-color: transparent;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     border: #4B1248;
-
+    max-width: 500px;
+    margin: 50px;
 }
 
 .card:hover {
@@ -158,4 +178,11 @@ background: linear-gradient(154deg, rgba(240,235,171,1) 0%, rgba(170,170,255,1) 
 .card-text {
     margin-top: 10px;
     font-size: 14px;
+}
+.image-name-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
 }

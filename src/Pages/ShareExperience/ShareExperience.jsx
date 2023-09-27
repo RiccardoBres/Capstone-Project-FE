@@ -13,7 +13,6 @@ import { postBeach, getBeach, allBeach } from '../../States/BeachState';
 import { useSession } from '../../Middleware/ProtectedRoutes';
 import AccessRegistration from '../../Components/VolatileComponents/AccessRegistration';
 
-
 const ShareExperience = () => {
     const { userId } = useParams();
     const dispatch = useDispatch();
@@ -77,20 +76,18 @@ const ShareExperience = () => {
             user: session.decodedSession.id,
         });
     };
-    const savedBeachesData = allBeaches.filter(beach => savedBeach.includes(beach._id));
+
+    const savedBeachesData = Array.isArray(allBeaches) ? allBeaches.filter(beach => savedBeach.includes(beach._id)) : [];
 
     const handleRemoveSavedBeach = (beachId) => {
         dispatch(removeSavedBeach(beachId));
-        console.log(savedBeaches);
-
     }
 
     useEffect(() => {
         dispatch(getBeach());
-        console.log(savedBeaches);
         dispatch(getUserById(userId))
             .then((data) => {
-                setUserDetails(data)
+                setUserDetails(data);
             })
             .catch((error) => {
                 console.error(error);
@@ -103,19 +100,18 @@ const ShareExperience = () => {
             <CustomNavbar />
             <Container className="share-experience-form">
                 <Row className='profile-row'>
-                    <Col className='p-0' sm={12} md={8} lg={4}>
-                        <div >
+                    <Col className='p-0' sm={12} md={12} lg={4}>
+                        <div>
                             {isLoading ? (
                                 <p>Caricamento in corso...</p>
                             ) : error ? (
                                 <p>Si è verificato un errore: {error}</p>
-                            ) : userDetails ? (
+                            ) : userDetails && userDetails.payload && userDetails.payload.userById ? (
                                 <div className='profile-page-container'>
                                     <div className='image-name-container'>
                                         <img className="image-profile" src={userDetails.payload.userById.avatar} alt="image-profile" />
-                                        <h3
-                                            className='profile-name'>
-                                            {userDetails.payload.userById.name}{userDetails.payload.userById.surname}
+                                        <h3 className='profile-name'>
+                                            {userDetails.payload.userById.name} {userDetails.payload.userById.surname}
                                         </h3>
                                     </div>
                                     <div className='email-container'>
@@ -130,12 +126,9 @@ const ShareExperience = () => {
                             ) : null}
                         </div>
                     </Col>
-                    <Col sm={4} md={4} lg={6}>
-
+                    <Col sm={12} md={12} lg={6}>
                         <div className='form-container'>
-                            <Form
-                                encType="multipart/form-data"
-                                onSubmit={handleSubmit}>
+                            <Form encType="multipart/form-data" onSubmit={handleSubmit}>
                                 <Form.Group className="mb-3" controlId="formNome">
                                     <Form.Label>Nome</Form.Label>
                                     <Form.Control
@@ -190,11 +183,11 @@ const ShareExperience = () => {
                     </Col>
                 </Row>
                 <Row className='opaque-background'>
-                    <Col sm={4} md={4} lg={6}>
+                    <Col sm={12} md={8} lg={6}>
                         <div className="beach-card-container-bcc">
                             <div className='beach-card-bcc'>
                                 <h3>Pubblicazioni:</h3>
-                                {userDetails && userDetails.payload.userById.beach.length > 0 ? (
+                                {userDetails && userDetails.payload && userDetails.payload.userById && userDetails.payload.userById.beach.length > 0 ? (
                                     userDetails.payload.userById.beach.map((beach) => (
                                         <Card key={beach._id} className='card'>
                                             <Card.Img className='card-img' src={beach.image} alt={beach.name} />
@@ -211,21 +204,21 @@ const ShareExperience = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col sm={4} md={4} lg={6}>
+                    <Col sm={4} md={8} lg={6}>
                         <div className="beach-card-container-bcc">
                             <div className='beach-card-bcc'>
                                 <h3>Preferiti:</h3>
-                                {savedBeach && savedBeachesData.length > 0 ? (
+                                {savedBeachesData && savedBeachesData.length > 0 ? (
                                     savedBeachesData.map((beach) => (
                                         <Card key={beach._id} className='card'>
                                             <Card.Img className='card-img' src={beach.image} alt={beach.name} />
                                             <Card.Title className='card-title'>{beach.name}</Card.Title>
                                             <Card.Body>
-                                            <FontAwesomeIcon
-                                                onClick={() => handleRemoveSavedBeach(beach._id)}
-                                                className='favorite-icon-remove'
-                                                icon={faHeartBroken}
-                                            />
+                                                <FontAwesomeIcon
+                                                    onClick={() => handleRemoveSavedBeach(beach._id)}
+                                                    className='favorite-icon-remove'
+                                                    icon={faHeartBroken}
+                                                />
                                                 <Card.Text className='card-text'>Località: {beach.location}</Card.Text>
                                                 <Card.Text className='card-text'>Livello: {beach.level}</Card.Text>
                                             </Card.Body>
@@ -245,4 +238,3 @@ const ShareExperience = () => {
 };
 
 export default ShareExperience;
-

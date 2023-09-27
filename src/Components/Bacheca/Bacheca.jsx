@@ -4,7 +4,7 @@ import './Bacheca.css';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane, faTrash, faMapMarker, faSchool, faBookmark, faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane, faTrash, faMapMarker, faSchool, faArrowAltCircleLeft , faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
 import { allBeach, getBeach, createComment, getComment, allComment, deleteComment } from '../../States/BeachState';
 import { addSavedBeach, removeSavedBeach, savedBeaches } from '../../States/UserState'
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,7 +22,7 @@ const Bacheca = () => {
     const levelOptions = ['Principiante', 'Intermedio', 'Avanzato']
     const [destination, setDestination] = useState('');
     const [level, setLevel] = useState('');
-    const [filteredBeaches, setFilteredBeaches] = useState(beaches);
+    const [filteredBeaches, setFilteredBeaches] = useState([]);
     const refScroll = useRef(null);
     const refScrollRevers = useRef(null);
     const savedBeach = useSelector(savedBeaches);
@@ -111,7 +111,7 @@ const Bacheca = () => {
 
 
     useEffect(() => {
-        console.log(savedBeaches);
+        console.log(beaches);
         dispatch(getBeach())
             .catch((error) => {
                 console.error('Errore nel recupero delle spiagge:', error);
@@ -205,7 +205,9 @@ const Bacheca = () => {
                                     </Card.Text>
                                     <Card.Text className="card-text-post">
                                         <div className="post-info-date">
-                                            <img src={beach.user.avatar} alt="" />
+                                            {beach.user && (
+                                                <img className="profile-image" src={beach.user.avatar} alt="user image" />
+                                            )}
                                             {<p className="card-footer-text">Pubblicato il: {new Date(beach.createdAt).toLocaleDateString()}</p>}
                                         </div>
                                     </Card.Text>
@@ -225,7 +227,7 @@ const Bacheca = () => {
                         )) : <p className='color-dark'>Nessuna spiaggia trovata </p>}
                     </div>
                 </Col>
-                {selectedCardId &&
+                {selectedCardId && beaches &&
                     beaches.map((beach) => (
                         selectedCardId === beach._id && (
                             <Col key={beach.user._id} xs={12} sm={6} md={6} lg={8} ref={refScroll}>
@@ -236,7 +238,7 @@ const Bacheca = () => {
                                             setSelectedCardId(null);
                                             scrollToElementRevers();
                                         }}
-                                        icon={faTrash}
+                                        icon={faArrowAltCircleLeft}
                                     />
                                     <div className='profile-details'>
                                         <img className="profile-image" src={beach.user.avatar} alt="user image" />

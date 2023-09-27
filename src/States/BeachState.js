@@ -5,19 +5,18 @@ const initialState = {
     isLoading: false,
     beach: [],
     comment: [],
-    error: null
+    error: null,
 }
-
 export const getBeach = createAsyncThunk(
     'beach/getBeach',
     async () => {
         try {
             const data = await fetch('http://localhost:9090/beach');
-            const response = data.json();
-            return response
-
+            const response = await data.json();
+            return response;
         } catch (error) {
-            console.log(error);
+            console.error(error);
+            throw error; 
         }
     }
 )
@@ -33,7 +32,7 @@ export const postBeach = createAsyncThunk(
         form.append("image", payload.image);
         form.append("user", payload.user);
         console.log(form);
-        
+
         try {
             const res = await axios.post('http://localhost:9090/beach/create', form, {
                 headers: {
@@ -56,7 +55,7 @@ export const getComment = createAsyncThunk(
     async (beachId) => {
         try {
             const data = await fetch(`HTTP://localhost:9090/beach/${beachId}/comments`);
-            const response = data.json();
+            const response = await data.json();
             return response
         } catch (error) {
             console.log(error);
@@ -106,9 +105,8 @@ export const deleteComment = createAsyncThunk(
 );
 
 
-
 export const beachSlice = createSlice({
-    name: 'BeachState',
+    name: 'beachState',
     initialState,
     extraReducers: (builder) => {
         builder
@@ -147,5 +145,6 @@ export const allBeach = (state) => state.beachState.beach;
 export const allComment = (state) => state.beachState.comment;
 export const isLoading = (state) => state.beachState.isLoading;
 export const beachError = (state) => state.beachState.error;
+
 
 export default beachSlice.reducer;

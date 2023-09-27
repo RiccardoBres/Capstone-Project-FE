@@ -5,9 +5,11 @@ import './ShareExperience.css';
 import CustomNavbar from '../../Components/NavBar/CustomNavbar';
 import { Container, Form, Button, Col, Row, Card } from 'react-bootstrap';
 import Footer from '../../Components/Footer/Footer';
-import { getUserById, isUserLoading, userError } from '../../States/UserState';
+import { getUserById, isUserLoading, userError, savedBeaches, removeSavedBeach } from '../../States/UserState';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane, faTrash, faMapMarker, faSchool, faBookmark, faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
 import { FaEnvelope, FaBirthdayCake } from 'react-icons/fa';
-import { postBeach } from '../../States/BeachState';
+import { postBeach, getBeach, allBeach } from '../../States/BeachState';
 import { useSession } from '../../Middleware/ProtectedRoutes';
 import AccessRegistration from '../../Components/VolatileComponents/AccessRegistration';
 
@@ -19,7 +21,8 @@ const ShareExperience = () => {
     const isLoading = useSelector(isUserLoading);
     const error = useSelector(userError);
     const session = useSession();
-
+    const savedBeach = useSelector(savedBeaches);
+    const allBeaches = useSelector(allBeach);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -50,7 +53,6 @@ const ShareExperience = () => {
         e.preventDefault();
         dispatch(postBeach(formData))
             .then((data) => {
-               
                 dispatch(getUserById(userId))
                     .then((userData) => {
                         setUserDetails(userData);
@@ -64,7 +66,7 @@ const ShareExperience = () => {
                 console.error(error);
             });
     };
-    
+
     const cleaner = () => {
         setFormData({
             name: '',
@@ -75,8 +77,17 @@ const ShareExperience = () => {
             user: session.decodedSession.id,
         });
     };
+    const savedBeachesData = allBeaches.filter(beach => savedBeach.includes(beach._id));
+
+    const handleRemoveSavedBeach = (beachId) => {
+        dispatch(removeSavedBeach(beachId));
+        console.log(savedBeaches);
+
+    }
 
     useEffect(() => {
+        dispatch(getBeach());
+        console.log(savedBeaches);
         dispatch(getUserById(userId))
             .then((data) => {
                 setUserDetails(data)
@@ -88,7 +99,7 @@ const ShareExperience = () => {
 
     return (
         <>
-            <AccessRegistration/>
+            <AccessRegistration />
             <CustomNavbar />
             <Container className="share-experience-form">
                 <Row className='profile-row'>
@@ -120,32 +131,11 @@ const ShareExperience = () => {
                         </div>
                     </Col>
                     <Col sm={4} md={4} lg={6}>
-                        <div className="beach-card-container-bcc">
-                            <div className='beach-card-bcc'>
-                                {userDetails && userDetails.payload.userById.beach.length > 0 ? (
-                                    userDetails.payload.userById.beach.map((beach) => (
-                                        <Card key={beach._id} className='card'>
-                                            <Card.Img className='card-img' src={beach.image} alt={beach.name} />
-                                            <Card.Title className='card-title'>{beach.name}</Card.Title>
-                                            <Card.Body>
-                                                <Card.Text className='card-text'>Località: {beach.location}</Card.Text>
-                                                <Card.Text className='card-text'>Livello: {beach.level}</Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    ))
-                                ) : (
-                                    <p>Questo utente non ha nessuna pubblicazione.</p>
-                                )}
-                            </div>
-                        </div>
-                    </Col>
-                </Row>
-                <Row className='opaque-background'>
-                    <Col sm={4} md={4} lg={8}>
+
                         <div className='form-container'>
-                            <Form 
-                            encType="multipart/form-data"
-                            onSubmit={handleSubmit}>
+                            <Form
+                                encType="multipart/form-data"
+                                onSubmit={handleSubmit}>
                                 <Form.Group className="mb-3" controlId="formNome">
                                     <Form.Label>Nome</Form.Label>
                                     <Form.Control
@@ -196,6 +186,55 @@ const ShareExperience = () => {
                                 </Form.Group>
                                 <Button type="submit">Condividi</Button>
                             </Form>
+                        </div>
+                    </Col>
+                </Row>
+                <Row className='opaque-background'>
+                    <Col sm={4} md={4} lg={6}>
+                        <div className="beach-card-container-bcc">
+                            <div className='beach-card-bcc'>
+                                <h3>Pubblicazioni:</h3>
+                                {userDetails && userDetails.payload.userById.beach.length > 0 ? (
+                                    userDetails.payload.userById.beach.map((beach) => (
+                                        <Card key={beach._id} className='card'>
+                                            <Card.Img className='card-img' src={beach.image} alt={beach.name} />
+                                            <Card.Title className='card-title'>{beach.name}</Card.Title>
+                                            <Card.Body>
+                                                <Card.Text className='card-text'>Località: {beach.location}</Card.Text>
+                                                <Card.Text className='card-text'>Livello: {beach.level}</Card.Text>
+                                            </Card.Body>
+                                        </Card>
+                                    ))
+                                ) : (
+                                    <p>Questo utente non ha nessuna pubblicazione.</p>
+                                )}
+                            </div>
+                        </div>
+                    </Col>
+                    <Col sm={4} md={4} lg={6}>
+                        <div className="beach-card-container-bcc">
+                            <div className='beach-card-bcc'>
+                                <h3>Preferiti:</h3>
+                                {savedBeach && savedBeachesData.length > 0 ? (
+                                    savedBeachesData.map((beach) => (
+                                        <Card key={beach._id} className='card'>
+                                            <Card.Img className='card-img' src={beach.image} alt={beach.name} />
+                                            <Card.Title className='card-title'>{beach.name}</Card.Title>
+                                            <Card.Body>
+                                            <FontAwesomeIcon
+                                                onClick={() => handleRemoveSavedBeach(beach._id)}
+                                                className='favorite-icon-remove'
+                                                icon={faHeartBroken}
+                                            />
+                                                <Card.Text className='card-text'>Località: {beach.location}</Card.Text>
+                                                <Card.Text className='card-text'>Livello: {beach.level}</Card.Text>
+                                            </Card.Body>
+                                        </Card>
+                                    ))
+                                ) : (
+                                    <p>Nessuna spiaggia salvata.</p>
+                                )}
+                            </div>
                         </div>
                     </Col>
                 </Row>

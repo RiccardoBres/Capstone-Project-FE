@@ -1,11 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Bacheca.css';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane, faTrash, faMapMarker, faSchool, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane, faTrash, faMapMarker, faSchool, faBookmark, faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
 import { allBeach, getBeach, createComment, getComment, allComment, deleteComment } from '../../States/BeachState';
+import { addSavedBeach, removeSavedBeach, savedBeaches } from '../../States/UserState'
 import { useDispatch, useSelector } from 'react-redux';
 import { useSession } from '../../Middleware/ProtectedRoutes';
 
@@ -24,8 +25,8 @@ const Bacheca = () => {
     const [filteredBeaches, setFilteredBeaches] = useState(beaches);
     const refScroll = useRef(null);
     const refScrollRevers = useRef(null);
-    const [location, setLocation] = useState();
-
+    const savedBeach = useSelector(savedBeaches);
+    const savedBeachMemo = useMemo(() => new Set(savedBeach), [savedBeach]);
 
 
     const handleCommentChange = (e) => {
@@ -92,8 +93,25 @@ const Bacheca = () => {
         navigate(`/School/location/${location}`);
     };
 
+    const handleSavePost = (beachId) => {
+        console.log('Aggiunta spiaggia ai preferiti:', beachId);
+        if (!savedBeach.includes(beachId)) {
+            dispatch(addSavedBeach(beachId));
+        } else {
+            console.log('Spiaggia già nei preferiti:', beachId);
+        }
+    };
+
+    const handleRemoveSavedBeach = (beachId) => {
+        console.log('Rimozione spiaggia dai preferiti - beachId:', beachId);
+        dispatch(removeSavedBeach(beachId));
+        console.log(savedBeach);
+    };
+
+
 
     useEffect(() => {
+        console.log(savedBeaches);
         dispatch(getBeach())
             .catch((error) => {
                 console.error('Errore nel recupero delle spiagge:', error);
@@ -168,8 +186,16 @@ const Bacheca = () => {
                     <div className="beach-container-posts">
                         {filteredBeaches ? filteredBeaches.map((beach) => (
                             <Card key={beach._id} className="card-post">
-                                <Card.Img className="card-img-post" src={beach.image} alt={beach.name} />
+                                <Card.Img
+                                    className="card-img-post" src={beach.image} alt={beach.name} />
                                 <Card.Title className="card-title-post">{beach.name}</Card.Title>
+                                <div className="favorite-icons">
+                                    <FontAwesomeIcon
+                                        onClick={() => savedBeachMemo.has(beach._id) ? handleRemoveSavedBeach(beach._id) : handleSavePost(beach._id)}
+                                        className={savedBeachMemo.has(beach._id) ? 'favorite-icon-selected' : 'favorite-icon'}
+                                        icon={savedBeachMemo.has(beach._id) ? faHeartBroken : faHeart}
+                                    />
+                                </div>
                                 <Card.Body className='p-0'>
                                     <Card.Text className="card-text-post">
                                         <FontAwesomeIcon icon={faMapMarker} /> Località: {beach.location}
@@ -179,7 +205,7 @@ const Bacheca = () => {
                                     </Card.Text>
                                     <Card.Text className="card-text-post">
                                         <div className="post-info-date">
-                                        <img src={beach.user.avatar} alt="" />
+                                            <img src={beach.user.avatar} alt="" />
                                             {<p className="card-footer-text">Pubblicato il: {new Date(beach.createdAt).toLocaleDateString()}</p>}
                                         </div>
                                     </Card.Text>

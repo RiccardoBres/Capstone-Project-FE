@@ -97,6 +97,7 @@ body {
   border-radius: 8px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.5s ease-in-out;
+  position: relative;
 }
 
 .card-post:hover {
@@ -335,3 +336,49 @@ body {
   margin-top: 5px;
   color: black;
 }
+.saved-post{
+  display: flex;
+  justify-content: center;
+}
+.hidden {
+  display: none;
+}
+
+
+/* CSS per i pulsanti delle spiagge nei preferiti */
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  z-index: 1;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ccc; /* Colore predefinito per il cuore non selezionato */
+  cursor: pointer;
+  margin-right: 5px;
+  transition: color 0.3s ease; /* Transizione per il cambio di colore */
+}
+
+.favorite-icon:hover {
+  color: #ff6b6b; /* Colore quando il cuore viene selezionato */
+}
+
+.favorite-icon-selected {
+  font-size: 24px;
+  color: #ff6b6b; /* Colore quando la spiaggia è nei preferiti */
+  cursor: pointer;
+  margin-right: 5px;
+  transition: color 0.3s ease;
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.favorite-icon-selected:hover {
+  color: #ccc; /* Colore quando il cuore viene deselezionato */
+}
+
+
+

@@ -5,7 +5,8 @@ const initialState = {
     isLoading: false,
     user: null,
     userById: null,
-    error: null
+    error: null,
+    savedBeach: [],
 };
 
 export const getUser = createAsyncThunk(
@@ -61,8 +62,27 @@ export const createUser = createAsyncThunk(
 );
 
 const UserSlice = createSlice({
-    name: 'UserState',
+    name: 'userState',
     initialState,
+    reducers: {
+        addSavedBeach: (state, action) => {
+            state.savedBeach.push(action.payload);
+        },
+        removeSavedBeach: (state, action) => {
+            console.log('action.payload:', action.payload);
+        
+            // Verifica se l'ID è presente nell'array prima della rimozione
+            const beachIdToRemove = action.payload;
+            const indexToRemove = state.savedBeach.indexOf(beachIdToRemove);
+        
+            if (indexToRemove !== -1) {
+                // Rimuovi l'ID dalla lista
+                state.savedBeach.splice(indexToRemove, 1);
+            }
+        
+            console.log('state.savedBeach dopo la rimozione:', state.savedBeach);
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(createUser.pending, (state) => {
@@ -87,11 +107,21 @@ const UserSlice = createSlice({
                 state.isLoading = false;
                 state.error = 'Registration failed'
             })
+            .addCase(addSavedBeach, (state, action) => {
+                state.savedBeach.push(action.payload); 
+            })
+            .addCase(removeSavedBeach, (state, action) => {
+                state.savedBeach = state.savedBeach.filter(
+                    (beach) => beach._id !== action.payload
+                );
+            });
     }
 })
 
 export const allUser = (state) => state.userState.user;
 export const isUserLoading = (state) => state.userState.isLoading;
 export const userError = (state) => state.userState.error;
+export const savedBeaches = (state) => state.userState.savedBeach;
+export const { addSavedBeach, removeSavedBeach } = UserSlice.actions;
 
 export default UserSlice.reducer;

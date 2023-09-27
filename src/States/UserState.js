@@ -13,7 +13,7 @@ export const getUser = createAsyncThunk(
     'user/GetUser',
     async () => {
         try {
-            const response = await axios.get('http://localhost:9090/user');
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_BASE_URL}/user`);
             return response.data;
         } catch (error) {
             console.log(error);
@@ -25,7 +25,7 @@ export const getUserById = createAsyncThunk(
     'userId/getUserByID',
     async(userId) => {
         try {
-            const response = await axios.get(`http://localhost:9090/user/${userId}`);
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_BASE_URL}/user/${userId}`);
             return response.data;
         } catch (error) {
             console.log(error);
@@ -46,7 +46,7 @@ export const createUser = createAsyncThunk(
         console.log(...form);
         
         try {
-            const res = await axios.post('http://localhost:9090/user/create', form, {
+            const res = await axios.post(`${process.env.REACT_APP_SERVER_BASE_URL}/user/create`, form, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }

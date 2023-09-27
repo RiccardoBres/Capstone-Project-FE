@@ -13,7 +13,7 @@ export const getSchools = createAsyncThunk(
     "schools/getSchools",
     async () => {
         try {
-            const data = await fetch("http://localhost:9090/school");
+            const data = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/school`);
             const response = await data.json();
             return response
         } catch (error) {
@@ -25,7 +25,7 @@ export const getSchoolsByLocation = createAsyncThunk(
     'schools/getSchoolsByLocation',
     async (location) => {
         try {
-            const response = await fetch(`http://localhost:9090/school/location?location=${location}`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/school/location?location=${location}`);
             const data = await response.json();
             return data;
         } catch (error) {
@@ -39,7 +39,7 @@ export const getSchoolsById = createAsyncThunk(
     'school/schoolById',
     async (id) => {
         try {
-            const response = await fetch(`http://localhost:9090/school/${id}`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/school/${id}`);
             const data = await response.json();
             console.log(data);
             return data;
@@ -64,7 +64,7 @@ export const createSchool = createAsyncThunk(
         console.log(...form);
 
         try {
-            const res = await axios.post('http://localhost:9090/school/create', form, {
+            const res = await axios.post(`${process.env.REACT_APP_SERVER_BASE_URL}/school/create`, form, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 }

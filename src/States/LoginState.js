@@ -11,7 +11,7 @@ export const loginUser = createAsyncThunk(
     'auth/loginUser',
     async (loginFormData, { rejectWithValue }) => {
         try {
-            const response = await axios.post('http://localhost:9090/login', loginFormData);
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_BASE_URL}/login`, loginFormData);
             const token = response.data.token;
             localStorage.setItem('userLoggedIn', JSON.stringify(token));
             return token;

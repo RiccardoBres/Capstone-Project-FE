@@ -11,7 +11,7 @@ export const getBeach = createAsyncThunk(
     'beach/getBeach',
     async () => {
         try {
-            const data = await fetch('http://localhost:9090/beach');
+            const data = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/beach`);
             const response = await data.json();
             return response;
         } catch (error) {
@@ -34,7 +34,7 @@ export const postBeach = createAsyncThunk(
         console.log(form);
 
         try {
-            const res = await axios.post('http://localhost:9090/beach/create', form, {
+            const res = await axios.post(`${process.env.REACT_APP_SERVER_BASE_URL}/beach/create`, form, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     'Authorization': token
@@ -54,7 +54,7 @@ export const getComment = createAsyncThunk(
     'comment/getComment',
     async (beachId) => {
         try {
-            const data = await fetch(`HTTP://localhost:9090/beach/${beachId}/comments`);
+            const data = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/beach/${beachId}/comments`);
             const response = await data.json();
             return response
         } catch (error) {
@@ -69,7 +69,7 @@ export const createComment = createAsyncThunk(
     async ({ content, beachId }) => {
         try {
             const token = JSON.parse(localStorage.getItem("userLoggedIn"));
-            const response = await fetch(`http://localhost:9090/beach/${beachId}/comment`, {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/beach/${beachId}/comment`, {
                 method: 'POST',
                 body: JSON.stringify({ content }),
                 headers: {
@@ -92,7 +92,7 @@ export const deleteComment = createAsyncThunk(
     async (commentID) => {
         try {
             const token = JSON.parse(localStorage.getItem('userLoggedIn'));
-            const response = await fetch(`http://localhost:9090/comment/${commentID}`, {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/comment/${commentID}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': token,

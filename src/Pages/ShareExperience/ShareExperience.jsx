@@ -108,7 +108,7 @@ const ShareExperience = () => {
                                 <p>Si è verificato un errore: {error}</p>
                             ) : userDetails && userDetails.payload && userDetails.payload.userById ? (
                                 <div className='profile-page-container'>
-                                    <div className='image-name-container'>
+                                    <div className='image-name-container-profile'>
                                         <img className="image-profile" src={userDetails.payload.userById.avatar} alt="image-profile" />
                                         <h3 className='profile-name'>
                                             {userDetails.payload.userById.name} {userDetails.payload.userById.surname}

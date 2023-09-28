@@ -26,7 +26,7 @@ const ModalLogin = ({ showModal, setShowModal, setUserData }) => {
 
     const handleLogin = async () => {
         try {
-            const response = await dispatch(loginUser(loginFormData));
+            const response = dispatch(loginUser(loginFormData));
             if (response.payload === 'Invalid password') {
                 setErrorLogin('Invalid password');
             } else {
@@ -35,7 +35,6 @@ const ModalLogin = ({ showModal, setShowModal, setUserData }) => {
                 console.log('Login success:', response);
             }
         } catch (error) {
-            // Gestisci altri tipi di errori qui
             console.error('Login error:', error);
         }
     };

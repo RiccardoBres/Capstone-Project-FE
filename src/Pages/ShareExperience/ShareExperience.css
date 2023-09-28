@@ -15,6 +15,8 @@
   border-radius: 8px;
   padding: 25px;
   background-color: rgba(255, 255, 255, 0.215);
+  align-items: flex-start;
+  text-align: center;
 }
 
 .beach-card-container-bcc::-webkit-scrollbar {
@@ -115,7 +117,14 @@
 .image-profile:hover {
   box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.5);
 }
-
+.image-name-container-profile{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    color: rgb(80, 79, 79);
+}
 
 
 

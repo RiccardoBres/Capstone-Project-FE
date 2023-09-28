@@ -21,13 +21,16 @@ body {
     align-items: center;
     justify-content: center;
     gap: 3rem;
-    padding: 20px; /* Aggiunto spazio ai bordi */
+    padding: 20px;
+    /* Aggiunto spazio ai bordi */
 }
-.first-row{
+
+.first-row {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 /* Stile dell'avatar del profilo */
 .avatar-profile-page {
     width: 200px;
@@ -52,9 +55,24 @@ body {
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.249);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    margin-top: 8rem
+    margin-top: 8rem;
+    position: relative;
 }
-
+.container-intro-image::before{
+    content: "";
+    background-image: url(https://img.freepik.com/free-photo/surfer-ocean-with-breathtaking-sunset-sky-background_181624-6844.jpg?size=626&ext=jpg&ga=GA1.1.141789769.1682703468&semt=ais);
+    background-position: center;
+    background-size: cover;
+    opacity: 0.5;
+    position: absolute;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    overflow-y: hidden !important;
+}
 /* Nome del profilo */
 .profile-name {
     margin-top: 30px;
@@ -63,9 +81,11 @@ body {
     text-align: center;
     font-size: 40px;
 }
-.text-pubblicazioni{
+
+.text-pubblicazioni {
     color: rgb(69, 68, 68);
 }
+
 /* Contenitore dell'email */
 .email-container {
     display: flex;
@@ -82,7 +102,8 @@ body {
 .icon-birthday {
     font-size: 20px;
 }
-.birthday-container{
+
+.birthday-container {
     padding: 10px;
     display: flex;
     gap: 0.7rem;
@@ -94,59 +115,36 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap; /* Consentiamo il wrapping delle carte */
-    gap: 20px; /* Aggiunto spazio tra le carte */
+    flex-wrap: wrap;
+    /* Consentiamo il wrapping delle carte */
+    gap: 20px;
+    /* Aggiunto spazio tra le carte */
 }
 
 /* Contenitore delle carte delle spiagge */
 .beach-card-container {
-    background-color: rgba(255, 255, 255, 0.51);
+    background-color:transparent;
     border-radius: 15px;
     width: 100%;
     box-shadow: 0px 15px 25px 10px rgba(0, 0, 0, 0.5);
     margin-bottom: 5rem;
     position: relative;
-    overflow-y: hidden !important;
-    padding: 50px;
-}
-
-/* Immagine di sfondo del contenitore delle carte delle spiagge */
-.beach-card-container::before {
-    content: "";
-    background-image: url(https://img.freepik.com/free-photo/surfer-ocean-with-breathtaking-sunset-sky-background_181624-6844.jpg?size=626&ext=jpg&ga=GA1.1.141789769.1682703468&semt=ais);
-    background-position: center;
-    background-size: cover;
-    opacity: 0.5;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    overflow-y: hidden !important;
-}
-
-/* Contenitore delle carte delle spiagge */
-.beach-cards {
-    width: 100%;
-    min-height: 30rem; /* Imposta un'altezza minima desiderata */
-    max-height: 65rem; /* Imposta un'altezza massima per l'effetto overflow */
-    overflow-x: auto;
     overflow-y: auto !important;
-    box-shadow: 0 4px 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    padding: 25px;
-    background-color: rgba(255, 255, 255, 0.215);
     flex-direction: column;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+     height: 40rem;
+
 }
 
-/* Nascondi le barre di scorrimento orizzontali */
- .beach-cards::-webkit-scrollbar {
+.beach-card-container::-webkit-scrollbar {
     display: none;
-} 
+}
+
+.card-profile-user {
+    min-width: 500px;
+}
 
 /* Stile delle carte delle spiagge */
 .card {
@@ -179,10 +177,11 @@ body {
     margin-top: 10px;
     font-size: 14px;
 }
-.image-name-container{
+
+.image-name-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: 100px;
 }

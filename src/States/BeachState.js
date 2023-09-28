@@ -15,7 +15,6 @@ export const getBeach = createAsyncThunk(
             const response = await data.json();
             return response;
         } catch (error) {
-            console.error(error);
             throw error; 
         }
     }

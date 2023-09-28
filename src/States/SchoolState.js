@@ -17,8 +17,8 @@ export const getSchools = createAsyncThunk(
             const response = await data.json();
             return response
         } catch (error) {
-            console.error('Errore nella chiamata API:', error);
-            throw error;        }
+            throw error;  
+        }
     }
 )
 export const getSchoolsByLocation = createAsyncThunk(

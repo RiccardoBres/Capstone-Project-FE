@@ -74,7 +74,7 @@ const CustomNavbar = () => {
                                     show={dropdownOpen}
                                     onToggle={(isOpen) => setDropdownOpen(isOpen)}
                                 >
-                                    <div className="custom-dropdown">
+                                    
                                         <p 
                                         onClick={() => session.decodedSession && handleShareExperiencePage(session.decodedSession.id)}
                                         className='drop-title'>
@@ -87,7 +87,8 @@ const CustomNavbar = () => {
                                         >
                                             <FontAwesomeIcon icon={faSignOutAlt} className="logout-icon" /> Logout
                                         </p>
-                                    </div>                  </NavDropdown>
+                                    
+                                </NavDropdown>
                             )}
                         </Nav>
                     </Navbar.Collapse>

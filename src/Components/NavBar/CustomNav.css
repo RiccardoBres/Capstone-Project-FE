@@ -42,8 +42,9 @@
     color: white;
 }
 .custom-dropdown{
-    height: 150px;
+    height: 95px;
     border-radius: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,14 +56,17 @@
     text-align: center;
     cursor: pointer;
     color: #0c0b0b;
-    margin-top: 10px;
     font-weight: bold;
 }
 
 .dropdown-menu {
     transform: translateX(-50%);
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff80;
+    position: relative;
+    top: 90%;
+    left: 30px;
+    margin-top: var(--bs-dropdown-spacer);
+    background-color: white;
 }
 .user-name-nav{
     color: white!important;

@@ -31,7 +31,7 @@ const Profile = () => {
     return (
         <>
             <CustomNavbar />
-            <AccessRegistration/>
+            <AccessRegistration />
             <Container fluid className='container-profile'>
                 <Row className='first-row'>
                     <Col sm={12} md={8} lg={10}>
@@ -64,25 +64,24 @@ const Profile = () => {
                 </Row>
                 <Row className='main-row'>
                     <Col sm={12} md={12} lg={12}>
-                        <div className="beach-card-container">
-                        <h1 className='text-pubblicazioni'>Pubblicazioni</h1>
-                            <div className='beach-cards'>
-                                {userDetails && userDetails.payload.userById.beach.length > 0 ? (
-                                    userDetails.payload.userById.beach.map((beach) => (
-                                        <Card key={beach._id} className='card'>
-                                            <Card.Img className='card-img' src={beach.image} alt={beach.name} />
-                                            <Card.Title className='card-title'>{beach.name}</Card.Title>
-                                            <Card.Body>
-                                                <Card.Text className='card-text'>Località: {beach.location}</Card.Text>
-                                                <Card.Text className='card-text'>Livello: {beach.level}</Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    ))
-                                ) : (
-                                    <p>Questo utente non ha nessuna pubblicazione.</p>
-                                )}
+                        {userDetails && userDetails.payload.userById.beach.length > 0 ? (
+                            <div className='beach-card-container'>
+                                <h1 className='text-pubblicazioni'>Pubblicazioni</h1>
+                                {userDetails.payload.userById.beach.map((beach) => (
+                                    <Card key={beach._id} className='card-profile-user'>
+                                        <Card.Img className='card-img' src={beach.image} alt={beach.name} />
+                                        <Card.Title className='card-title'>{beach.name}</Card.Title>
+                                        <Card.Body>
+                                            <Card.Text className='card-text'>Località: {beach.location}</Card.Text>
+                                            <Card.Text className='card-text'>Livello: {beach.level}</Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                ))}
                             </div>
-                        </div>
+                        ) : (
+                            <p>Questo utente non ha nessuna pubblicazione.</p>
+                        )}
+
                     </Col>
                 </Row>
             </Container>

@@ -23,7 +23,7 @@ const HeroBeach = ({ userData }) => {
         navigate(`/profile/${userId}`);
     };
     const handleShareExperiencePage = (userId) => {
-            navigate(`/shareExperience/${userId}`);
+        navigate(`/shareExperience/${userId}`);
     }
 
     useEffect(() => {
@@ -36,13 +36,13 @@ const HeroBeach = ({ userData }) => {
             <Container fluid>
                 <Row className='beach-container'>
                     <Col lg={12} md={6} xs={12} className='order-lg-1 beach-description'>
-                    <div className='container-Logo'>
-                        <img
-                            className='logo'
-                            src={Logo}
-                            alt="Immagine logo scuola surf"
-                        />
-                    </div>
+                        <div className='container-Logo'>
+                            <img
+                                className='logo'
+                                src={Logo}
+                                alt="Immagine logo scuola surf"
+                            />
+                        </div>
                         <p className='beach-title'>
                             Condividi le tue esperienze <br />
                             Esprimi la tua passione per il surf e connettiti con una community appassionata di surfisti di tutto il mondo.
@@ -56,16 +56,15 @@ const HeroBeach = ({ userData }) => {
                                 <Button variant="dark" className="btn-community">Entra a far parte della community</Button>
                             </Link>
                             <Button
-                                 onClick={() => session.decodedSession && handleShareExperiencePage(session.decodedSession.id)}
+                                onClick={() => session.decodedSession && handleShareExperiencePage(session.decodedSession.id)}
                                 variant="secondary"
                                 className="btn-share"
                             >
                                 Condividi una tua esperienza
                             </Button>
-
                         </div>
                     </Col>
-                    <Col lg={6} md={6} xs={12} className='order-lg-2 beach-list'>
+                    <Col lg={4} md={6} xs={12} className='order-lg-2 beach-list'>
                         <Carousel
                             className='carousel-beach'
                             indicators={false}
@@ -77,29 +76,36 @@ const HeroBeach = ({ userData }) => {
                                     <span className="visually-hidden">Loading...</span>
                                 </div>
                             </div>}
-                            {beaches && beaches.map((beach) => (
-                                <Carousel.Item key={beach._id}>
-                                    <div className="beach-card">
-                                        <div className="beach-card__image">
-                                            <img src={beach.image} alt={beach.name} />
-                                        </div>
-                                        <div className="beach-card__content">
-                                            <div className="beach-card__title">{beach.name}</div>
-                                            <div className="beach-card__info">
-                                                <FontAwesomeIcon icon={faLevelUpAlt} />
-                                                <div className="beach-card__level">{beach.level}</div>
-                                                <FontAwesomeIcon icon={faWater} />
-                                                <div className="beach-card__type">{beach.type}</div>
+                            {beaches && Array.isArray(beaches) && beaches.length > 0 ? (
+                                beaches.map((beach) => (
+                                    <Carousel.Item key={beach._id}>
+                                        <div className="beach-card">
+                                            <div className="beach-card__image">
+                                                <img src={beach.image} alt={beach.name} />
                                             </div>
-                                            {beach.user && <div className="footer-beach-card">
-                                                <a
-                                                    onClick={() => handleAuthorClick(beach.user._id)}
-                                                    className="user-name">Pubblicato da {beach.user.name}{beach.user.surname}</a>
-                                            </div>}
+                                            <div className="beach-card__content">
+                                                <div className="beach-card__title">{beach.name}</div>
+                                                <div className="beach-card__info">
+                                                    <FontAwesomeIcon icon={faLevelUpAlt} />
+                                                    <div className="beach-card__level">{beach.level}</div>
+                                                    <FontAwesomeIcon icon={faWater} />
+                                                    <div className="beach-card__type">{beach.type}</div>
+                                                </div>
+                                                {beach.user && <div className="footer-beach-card">
+                                                    <a
+                                                        onClick={() => handleAuthorClick(beach.user._id)}
+                                                        className="user-name">Pubblicato da {beach.user.name}{beach.user.surname}</a>
+                                                </div>}
+                                            </div>
                                         </div>
-                                    </div>
+                                    </Carousel.Item>
+                                ))
+                            ) : (
+                                <Carousel.Item>
+                                    <p>Non ci sono spiagge disponibili al momento.</p>
                                 </Carousel.Item>
-                            ))}
+                            )}
+
                         </Carousel>
                     </Col>
                 </Row>

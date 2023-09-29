@@ -64,10 +64,15 @@
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     position: relative;
     top: 90%;
-    left: 30px;
+    left: -15px;
     margin-top: var(--bs-dropdown-spacer);
     background-color: white;
 }
+.dropdown-menu[data-bs-popper] {
+    top: 100%;
+    left: 70px;
+    margin-top: var(--bs-dropdown-spacer);}
+
 .user-name-nav{
     color: white!important;
     font-size: 18px;

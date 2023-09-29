@@ -87,9 +87,9 @@ const School = () => {
                     <Card.Img variant='top' src={school.image} />
                     <Card.Body>
                       <Card.Title>{school.name}</Card.Title>
+                      <Card.Text>{school.address}</Card.Text>
                       <Card.Text>{school.location}</Card.Text>
-                      <Card.Text>{school.description}</Card.Text>
-                      <Link to={`/SchoolDetails/${school._id}`}><p>Visualizza dettagli</p></Link>
+                      <Link className='go-to-details-school' to={`/SchoolDetails/${school._id}`}><p>Visualizza dettagli</p></Link>
                     </Card.Body>
                   </Card>
                 </Col>

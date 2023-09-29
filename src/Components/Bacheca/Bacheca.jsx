@@ -4,7 +4,7 @@ import './Bacheca.css';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane, faTrash, faMapMarker, faSchool, faArrowAltCircleLeft , faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane, faTrash, faMapMarker, faSchool, faArrowAltCircleLeft, faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons';
 import { allBeach, getBeach, createComment, getComment, allComment, deleteComment } from '../../States/BeachState';
 import { addSavedBeach, removeSavedBeach, savedBeaches } from '../../States/UserState'
 import { useDispatch, useSelector } from 'react-redux';
@@ -184,47 +184,51 @@ const Bacheca = () => {
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={10}>
                     <div className="beach-container-posts">
-                        {filteredBeaches ? filteredBeaches.map((beach) => (
-                            <Card key={beach._id} className="card-post">
-                                <Card.Img
-                                    className="card-img-post" src={beach.image} alt={beach.name} />
-                                <Card.Title className="card-title-post">{beach.name}</Card.Title>
-                                <div className="favorite-icons">
-                                    <FontAwesomeIcon
-                                        onClick={() => savedBeachMemo.has(beach._id) ? handleRemoveSavedBeach(beach._id) : handleSavePost(beach._id)}
-                                        className={savedBeachMemo.has(beach._id) ? 'favorite-icon-selected' : 'favorite-icon'}
-                                        icon={savedBeachMemo.has(beach._id) ? faHeartBroken : faHeart}
-                                    />
-                                </div>
-                                <Card.Body className='p-0'>
-                                    <Card.Text className="card-text-post">
-                                        <FontAwesomeIcon icon={faMapMarker} /> Località: {beach.location}
-                                    </Card.Text>
-                                    <Card.Text className="card-text-post">
-                                        <FontAwesomeIcon icon={faSchool} /> Livello: {beach.level}
-                                    </Card.Text>
-                                    <Card.Text className="card-text-post">
-                                        <div className="post-info-date">
-                                            {beach.user && (
-                                                <img className="profile-image" src={beach.user.avatar} alt="user image" />
-                                            )}
-                                            {<p className="card-footer-text">Pubblicato il: {new Date(beach.createdAt).toLocaleDateString()}</p>}
-                                        </div>
-                                    </Card.Text>
-                                </Card.Body>
-                                <div className='buttons-school-reviews'>
-                                    <button className='button-details-card' onClick={() => { handleDetails(beach._id); scrollToElement(); }}>Recensioni</button>
-                                    <button
-                                        className='button-details-card'
-                                        onClick={() => handleSchoolPage(beach.location)}
-                                    >
-                                        <Link className='decoration-none' to={`/School/location?location=${beach.location}`}>
-                                            Scuole nelle vicinanze
-                                        </Link>
-                                    </button>
-                                </div>
-                            </Card>
-                        )) : <p className='color-dark'>Nessuna spiaggia trovata </p>}
+                        {Array.isArray(filteredBeaches) && filteredBeaches.length > 0 ? (
+                            filteredBeaches.map((beach) => (
+                                <Card key={beach._id} className="card-post">
+                                    <Card.Img
+                                        className="card-img-post" src={beach.image} alt={beach.name} />
+                                    <Card.Title className="card-title-post">{beach.name}</Card.Title>
+                                    <div className="favorite-icons">
+                                        <FontAwesomeIcon
+                                            onClick={() => savedBeachMemo.has(beach._id) ? handleRemoveSavedBeach(beach._id) : handleSavePost(beach._id)}
+                                            className={savedBeachMemo.has(beach._id) ? 'favorite-icon-selected' : 'favorite-icon'}
+                                            icon={savedBeachMemo.has(beach._id) ? faHeartBroken : faHeart}
+                                        />
+                                    </div>
+                                    <Card.Body className='p-0'>
+                                        <Card.Text className="card-text-post">
+                                            <FontAwesomeIcon icon={faMapMarker} /> Località: {beach.location}
+                                        </Card.Text>
+                                        <Card.Text className="card-text-post">
+                                            <FontAwesomeIcon icon={faSchool} /> Livello: {beach.level}
+                                        </Card.Text>
+                                        <Card.Text className="card-text-post">
+                                            <div className="post-info-date">
+                                                {beach.user && (
+                                                    <img className="profile-image" src={beach.user.avatar} alt="user image" />
+                                                )}
+                                                {<p className="card-footer-text">Pubblicato il: {new Date(beach.createdAt).toLocaleDateString()}</p>}
+                                            </div>
+                                        </Card.Text>
+                                    </Card.Body>
+                                    <div className='buttons-school-reviews'>
+                                        <button className='button-details-card' onClick={() => { handleDetails(beach._id); scrollToElement(); }}>Recensioni</button>
+                                        <button
+                                            className='button-details-card'
+                                            onClick={() => handleSchoolPage(beach.location)}
+                                        >
+                                            <Link className='decoration-none' to={`/School/location?location=${beach.location}`}>
+                                                Scuole nelle vicinanze
+                                            </Link>
+                                        </button>
+                                    </div>
+                                </Card>
+                            ))
+                        ) : (
+                            <p className='color-dark'>Nessuna spiaggia trovata</p>
+                        )}
                     </div>
                 </Col>
                 {selectedCardId && beaches &&

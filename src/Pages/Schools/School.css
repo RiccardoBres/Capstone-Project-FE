@@ -56,15 +56,16 @@
 }
 
 .school-card {
-  margin: 10px;
-  width: 310px;
-  height: 400px;
-
+  width: 295px;
+  height: 440px;
   border: 1px solid #ddd;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
   background-color: rgba(255, 255, 255, 0.056);
 
+}
+.go-to-details-school{
+  color: rgb(83, 82, 82);
 }
 
 .school-card:hover {
@@ -168,13 +169,14 @@
   margin-right: 2px;
 }
 .card-school-details {
-  width: 100%px;
+  width: 100%;
   border: 1px solid #ddd; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
   transition: transform 0.2s ease-in-out; 
   display: flex;
   margin: 50px;
   margin: 10px;
+  overflow: hidden;
 }
 .card-school-details:hover {
   transform: scale(1.02); 

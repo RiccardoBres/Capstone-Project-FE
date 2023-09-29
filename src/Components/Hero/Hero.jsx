@@ -38,7 +38,7 @@ const Hero = () => {
                             Trova la tua meta
                         </p>
                         <br />
-                        <p className='intro-video'>Le migliori mete Surfistiche a portata di un click.
+                        <p className='intro-video'>Le migliori mete Surfistiche a portata di un click.<br />
                             Programma la tua vacanza ideale e scopri i servizi più adatti a te! <br />
                             Pratica il tuo Surf e trova lo spot più adatto al tuo livello in tutta Europa!</p>
                         <div className={`buttons-container ${showButtons ? 'visible' : ''}`}>
